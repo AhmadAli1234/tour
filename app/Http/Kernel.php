@@ -40,6 +40,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\RedirectForMultiLanguage::class,
             \App\Http\Middleware\HideDebugbar::class,
+            \Illuminate\Http\Middleware\HandleCors::class,
             SetCurrentCurrency::class,
             SetLanguageForAdmin::class,
         ],
