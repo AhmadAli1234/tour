@@ -35,7 +35,7 @@ class HomeController extends Controller
             $seo_meta = $page->getSeoMetaWithTranslation(app()->getLocale(), $translation);
             $seo_meta['full_url'] = url("/");
             $seo_meta['is_homepage'] = true;
-            $data = [
+            $data = [   
                 'row'=>$page,
                 "seo_meta"=> $seo_meta,
                 'is_home' => true,

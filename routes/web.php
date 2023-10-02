@@ -10,8 +10,8 @@
 |
 */
 Route::get('/intro','\App\Http\Controllers\LandingpageController@index');
-Route::get('/', '\App\Http\Controllers\HomeController@index');
-Route::get('/home', '\App\Http\Controllers\HomeController@index')->name('home');
+Route::get('/ticket', '\App\Http\Controllers\HomeController@index');
+// Route::get('/home', '\App\Http\Controllers\HomeController@index')->name('home');
 Route::post('/install/check-db', '\App\Http\Controllers\HomeController@checkConnectDatabase');
 
 Route::get('/update', function (){

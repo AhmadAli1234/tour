@@ -1,0 +1,23 @@
+{
+    "name": "myTravel/home",
+    "description": "",
+    "authors": [
+        {
+            "name": "MyTravel",
+            "email": "myTravel.org@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Home\\": ""
+        }
+    }
+}

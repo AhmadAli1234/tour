@@ -11,7 +11,7 @@ return [
     |
     */
 
-    'namespace' => 'Plugins',
+    'namespace' => 'Modules',
 
     /*
     |--------------------------------------------------------------------------
@@ -34,7 +34,7 @@ return [
             'composer' => 'composer.json',
             'assets/js/app' => 'Resources/assets/js/app.js',
             'assets/sass/app' => 'Resources/assets/sass/app.scss',
-            'webpack' => 'webpack.mix.js',
+            // 'webpack' => 'webpack.mix.js',
             'package' => 'package.json',
         ],
         'replacements' => [
@@ -67,7 +67,7 @@ return [
         |
         */
 
-        'modules' => base_path('plugins'),
+        'modules' => base_path('modules'),
         /*
         |--------------------------------------------------------------------------
         | Modules assets path
@@ -77,7 +77,7 @@ return [
         |
         */
 
-        'assets' => public_path('plugins'),
+        'assets' => public_path('modules'),
         /*
         |--------------------------------------------------------------------------
         | The migrations path

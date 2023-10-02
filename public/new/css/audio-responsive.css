@@ -1,0 +1,1055 @@
+@media screen and (min-width: 1201px) and (max-width: 1365px) {
+  .flag-item ul li {
+      font-weight: 700;
+      font-size: 16px;
+  }
+  .envie-images4 {
+      animation: 7s infinite alternate floating;
+      position: absolute;
+      top: 200px;
+      right: 98px;
+  }
+  .menu-item ul li {
+      margin-right: 37px;
+  }
+  /* ============new============ */
+  .hero-left h2 {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 39px;
+  }
+  .boysge-left h2 {
+      font-weight: 800;
+      font-size: 48px;
+  }
+  .boysge-right h3 {
+      font-weight: 700;
+      font-size: 34px;
+  }
+  .villes-left {
+      background-size: 850px;
+      background-position: left center;
+  }
+  .villes-left-img-item img {
+      width: 220px;
+  }
+  .villes-left-img-item {
+      margin-left: 6px;
+      display: flex;
+  }
+  .villes-left-img-item img {
+      margin-left: 20px;
+  }
+  .villes-right-content h2 {
+      font-weight: 700;
+      font-size: 33px;
+  }
+  .villes-right-content p {
+      font-weight: 500;
+      font-size: 16px;
+  }
+  .villes-right-content {
+      margin-bottom: 24px;
+  }
+  .villegs-area {
+      padding: 23px 0;
+  }
+  .villes-right1 {
+      margin-top: 67px;
+  }
+  .villes-right1 h2 {
+      color: #00D1FF;
+      margin-top: 25px;
+  }
+}
+
+/*
+====================================
+Medium Screen - Others
+====================================
+*/
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .hamburger {
+      display: block !important;
+  }
+  .menu-item {
+      display: none;
+  }
+  .logo {
+      display: block !important;
+  }
+  .menu-btn {
+      display: none;
+  }
+  .hero-left h2 {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 40px;
+  }
+  .hero-right img {
+      width: 450px;
+  }
+  .flag-item ul li {
+      font-weight: 700;
+      font-size: 15px;
+  }
+  .flag-item img {
+      width: 43px;
+  }
+  .flag-item {
+      width: 20%;
+      background: #F7FAFF;
+      border-radius: 22px;
+      padding: 20px 12px 13px;
+      margin: 0 10px;
+  }
+  .evviede-venir-wrapper-area {
+      padding: 71px 31px;
+  }
+  .envie-images4 {
+      animation: 7s infinite alternate floating;
+      position: absolute;
+      top: 200px;
+      right: 98px;
+  }
+  /* =======new======== */
+  .hero-left h2 {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 29px;
+      margin-bottom: 38px;
+  }
+  .boysge-left h2 {
+      font-weight: 800;
+      font-size: 38px;
+  }
+  .boysge-right h3 {
+      font-weight: 700;
+      font-size: 34px;
+  }
+  .villes-left {
+      background-size: 657px;
+      background-position: left center;
+  }
+  .villes-left-img-item img {
+      width: 188px;
+  }
+  .villes-left-img-item {
+      margin-left: 6px;
+      display: flex;
+  }
+  .villes-left-img-item img {
+      margin-left: 20px;
+  }
+  .villes-right-content h2 {
+      font-weight: 700;
+      font-size: 33px;
+  }
+  .villes-right-content p {
+      font-weight: 500;
+      font-size: 16px;
+  }
+  .villes-right-content {
+      margin-bottom: 24px;
+  }
+  .villegs-area {
+      padding: 23px 0;
+  }
+  .villes-right1 {
+      margin-top: 67px;
+  }
+  .villes-right1 h2 {
+      color: #00D1FF;
+      margin-top: 25px;
+  }
+  .nos-offers-left h5 {
+      font-weight: 400;
+      font-size: 29px;
+  }
+  .nos-offers-left h5 span {
+      font-weight: 700;
+      font-size: 40px;
+  }
+}
+
+/*
+====================================
+Small Screen - Tablate
+====================================
+*/
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .hamburger {
+      display: block !important;
+  }
+  .menu-item {
+      display: none;
+  }
+  .logo {
+      display: block !important;
+  }
+  .menu-btn {
+      display: none;
+  }
+  .hero-left h2 {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 21px;
+      margin-top: 50px;
+  }
+  .tixi1 {
+      position: absolute;
+      left: 2px;
+      top: -51px;
+  }
+  .tixi2 {
+      position: absolute;
+      right: -50px;
+      top: -62px;
+      transform: rotate(310deg);
+  }
+  .tixi3 {
+      position: absolute;
+      left: 30%;
+      bottom: -46px;
+  }
+  .hero-text p {
+      font-weight: 400;
+      font-size: 13px;
+  }
+  .hero-left {
+      margin-top: 70px;
+  }
+  .hero-right img {
+      width: 350px;
+  }
+  .flag-item ul li {
+      font-weight: 700;
+      font-size: 10px;
+  }
+  .flag-item {
+      width: 20%;
+      background: #F7FAFF;
+      border-radius: 22px;
+      padding: 11px 12px 6px;
+      margin: 0 4px;
+  }
+  .milions-title h3 {
+      font-weight: 700;
+      font-size: 26px;
+  }
+  .millions-de-right {
+      margin-left: 0px;
+      z-index: 99999;
+      margin-bottom: 80px;
+  }
+  .millions-de-right h3 {
+      font-weight: 600;
+      font-size: 27px;
+  }
+  .millions-de-right h3 br {
+      display: none;
+  }
+  .milions-de-wrapper {
+      background: linear-gradient(270deg, #F7FAFF 0%, rgba(247, 250, 255, 0) 100%);
+      border-radius: 0px 70px 70px 0px;
+      padding-top: 55px;
+  }
+  .drive-text-area {
+      padding: 200px 0 40px 0;
+  }
+  .drive-text-left {
+      z-index: 999;
+      position: relative;
+      margin-bottom: 65px;
+  }
+  .drive-text-left h3 {
+      font-weight: 600;
+      font-size: 29px;
+      color: #000028;
+      margin-bottom: 31px;
+  }
+  .comm-car {
+      display: none;
+  }
+  .millions-de-text-item-wrappers {
+      position: absolute;
+      top: 26px;
+      right: 0;
+  }
+  .millions-de-text-item {
+      padding: 16px 12px;
+      background: #FFFFFF;
+      border: 4px solid #F7FAFF;
+      box-shadow: 20px 20px 40px rgba(0, 0, 40, 0.15);
+      border-radius: 20px;
+      max-width: 330px;
+      display: flex;
+      padding: 9px 9px;
+      margin-bottom: 9px;
+  }
+  .millions-de-text-item ul li span {
+      font-weight: 600;
+      font-size: 10px;
+  }
+  .millions-de-text-item ul li {
+      font-weight: 400;
+      font-size: 11px;
+      line-height: 15px;
+  }
+  /* ===== */
+  .millions-de-text-item1 {
+      padding: 16px 12px;
+      padding: 7px 9px;
+      margin-bottom: 8px;
+  }
+  .millions-de-text-item1 ul li span {
+      font-weight: 700;
+      font-size: 9px;
+      line-height: 24px;
+      color: #000028;
+      margin-bottom: -6px;
+  }
+  .millions-de-text-item1 ul li h4 {
+      font-weight: 700;
+      font-size: 15px;
+  }
+  .millions-de-text-item1 ul li {
+      font-weight: 400;
+      font-size: 11px;
+  }
+  .flag-item img {
+      width: 31px;
+  }
+  /* .evviede-venir-items1 { */
+  .evviede-venir-area {
+      padding: 4px 0 100px;
+  }
+  .evviede-venir-wrapper-area {
+      padding: 50px 60px;
+  }
+  .evviede-venir-items1 {
+      padding: 30px 0;
+      display: flex !important;
+      justify-content: space-between;
+  }
+  .envie-images1 {
+      position: initial !important;
+      display: none;
+  }
+  .envie-images2 {
+      position: initial;
+  }
+  .envie-images3 {
+      position: initial;
+      margin-top: -30px;
+  }
+  .envie-images4 {
+      position: initial;
+  }
+  .envie-images5 {
+      position: initial;
+  }
+  .envie-images6 {
+      position: initial;
+      margin-top: 40px;
+  }
+  .envie-images7 {
+      position: initial;
+  }
+  .evviede-venir-title {
+      margin-bottom: 34px;
+  }
+  .evviede-venir-title h2 {
+      font-weight: 700;
+      font-size: 25px;
+      text-align: center;
+      color: #000028;
+      margin-bottom: 25px;
+  }
+  .ml-lf-bg img {
+      width: 700px;
+  }
+  .ml-lf-bg {
+      position: absolute;
+      left: -222px;
+      top: -41px;
+  }
+  .fixed-menu2 {
+      max-width: 100%;
+      width: 100%;
+      z-index: 99999999999999;
+      left: 0px;
+      top: 0px;
+      margin: auto;
+      transition: .2s;
+      background: #FFFFFF;
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 0px 0px 0px 0px;
+  }
+  /*====== footer======== */
+  .mobile-footer {
+      background: #000028;
+      display: block !important;
+  }
+  footer {
+      background: #000028;
+  }
+  .footer-container {
+      display: none;
+  }
+  /* ========new======== */
+  .boysge-left h2 {
+      font-weight: 800;
+      font-size: 27px;
+  }
+  .hero-left {
+      margin-top: 111px;
+  }
+  .tixi3 {
+      position: absolute;
+      left: 30%;
+      bottom: -46px;
+      display: none;
+  }
+  .boysge-right h3 {
+      font-weight: 700;
+      font-size: 21px;
+  }
+  .villes-left {
+      background-size: 400px;
+      background-position: left center;
+  }
+  .villes-left-img-item img {
+      width: 95px;
+  }
+  .villes-left-img-item {
+      margin-left: 6px;
+      display: flex;
+  }
+  .villes-left-img-item img {
+      margin-left: 20px;
+  }
+  .villes-right-content h2 {
+      font-weight: 700;
+      font-size: 33px;
+  }
+  .villes-right-content p {
+      font-weight: 500;
+      font-size: 16px;
+  }
+  .villes-right-content {
+      margin-bottom: 24px;
+  }
+  .villegs-area {
+      padding: 23px 0;
+  }
+  .villes-right1 h2 {
+      color: #00D1FF;
+      margin-top: 25px;
+  }
+  .nos-custom-container {
+      overflow: hidden;
+  }
+  .nos-offers-left {
+      padding: 42px 0 0 26px;
+  }
+  .nos-offers-left p {
+      font-weight: 400;
+      font-size: 18px;
+      margin-bottom: 13px;
+  }
+  .nos-offers-left h5 {
+      font-weight: 400;
+      font-size: 24px;
+      margin-bottom: 30px;
+  }
+  .nos-offers-left h5 span {
+      font-weight: 700;
+      font-size: 31px;
+  }
+}
+
+/*
+====================================
+Small Screen - Mobile
+====================================
+*/
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .hamburger {
+      display: block !important;
+  }
+  .menu-item {
+      display: none;
+  }
+  .logo {
+      display: block !important;
+  }
+  .menu-btn {
+      display: none;
+  }
+  .hero-left h2 {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 29px;
+  }
+  .tixi1 {
+      position: absolute;
+      left: 2px;
+      top: -51px;
+  }
+  .tixi2 {
+      position: absolute;
+      right: -5px;
+      top: -62px;
+      transform: rotate(310deg);
+  }
+  .tixi3 {
+      position: absolute;
+      left: 30%;
+      bottom: -46px;
+      display:none;
+  }
+  .hero-text p {
+      font-weight: 400;
+      font-size: 13px;
+  }
+  .hero-left {
+      margin-top: 70px;
+  }
+  .hero-right {
+      position: inherit;
+      margin-top: 30px;
+  }
+  .flag-wrapper {
+      flex-wrap: wrap;
+  }
+  .flag-item {
+      width: 100%;
+      margin-bottom: 30px;
+  }
+  .ml-lf-bg img {
+      width: 608px;
+  }
+  .ml-lf-bg {
+      position: absolute;
+      left: -278px;
+      top: 51%;
+  }
+  .orderss2 {
+      order: 2;
+  }
+  .orderss1 {
+      order: 1;
+  }
+  .milions-title h3 {
+      font-weight: 700;
+      font-size: 26px;
+  }
+  .millions-de-right {
+      margin-left: 0px;
+      z-index: 99999;
+      margin-bottom: 80px;
+  }
+  .millions-de-right h3 {
+      font-weight: 600;
+      font-size: 27px;
+  }
+  .millions-de-right h3 br {
+      display: none;
+  }
+  .milions-de-wrapper {
+      background: linear-gradient(270deg, #F7FAFF 0%, rgba(247, 250, 255, 0) 100%);
+      border-radius: 0px 70px 70px 0px;
+      padding-top: 55px;
+  }
+  .drive-text-area {
+      padding: 200px 0 40px 0;
+  }
+  .drive-text-left {
+      z-index: 999;
+      position: relative;
+      margin-bottom: 65px;
+  }
+  .drive-text-left h3 {
+      font-weight: 600;
+      font-size: 29px;
+      color: #000028;
+      margin-bottom: 31px;
+  }
+  .comm-car {
+      display: none;
+  }
+  .millions-de-text-item-wrappers {
+      position: absolute;
+      top: 26px;
+      right: 0;
+  }
+  /* .evviede-venir-items1 { */
+  .evviede-venir-wrapper-area {
+      padding: 50px 21px;
+  }
+  .evviede-venir-items1 {
+      padding: 30px 0;
+      display: flex !important;
+      justify-content: space-between;
+  }
+  .envie-images1 {
+      position: initial !important;
+      display: none;
+  }
+  .envie-images2 {
+      position: initial;
+  }
+  .envie-images3 {
+      position: initial;
+      margin-top: -30px;
+  }
+  .envie-images4 {
+      position: initial;
+  }
+  .envie-images5 {
+      position: initial;
+  }
+  .envie-images6 {
+      position: initial;
+      margin-top: 40px;
+  }
+  .envie-images7 {
+      position: initial;
+  }
+  .evviede-venir-title {
+      margin-bottom: 34px;
+  }
+  .evviede-venir-title h2 {
+      font-weight: 700;
+      font-size: 25px;
+      text-align: center;
+      color: #000028;
+      margin-bottom: 25px;
+  }
+  .evviede-venir-title h2 br {
+      display: none;
+  }
+  .evviede-venir-title p br {
+      display: none;
+  }
+  .fixed-menu2 {
+      max-width: 100%;
+      width: 100%;
+      z-index: 99999999999999;
+      left: 0px;
+      top: 0px;
+      margin: auto;
+      transition: .2s;
+      background: #FFFFFF;
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 0px 0px 0px 0px;
+  }
+  /*====== footer======== */
+  .mobile-footer {
+      background: #000028;
+      display: block !important;
+  }
+  footer {
+      background: #000028;
+  }
+  .footer-container {
+      display: none;
+  }
+  /*=========== new=========== */
+  .new-boysge-container {
+      background: linear-gradient(180deg, #F7FAFF 0%, rgba(247, 250, 255, 0) 100%);
+      border-radius: 70px 0px 0px 70px;
+      padding-top: 46px;
+      padding-left: 22px;
+      padding-right: 15px;
+  }
+  .boysge-left h2 {
+      font-weight: 800;
+      font-size: 26px;
+      letter-spacing: 7px;
+      margin-bottom: 10px;
+  }
+  .boysge-right h3 {
+      font-weight: 700;
+      font-size: 26px;
+  }
+  .boysge-right {
+      margin-left: -9px;
+      position: relative;
+  }
+  .boysge-right::before {
+      display: none !important;
+  }
+  .villes-left {
+      background-size: 450px;
+      background-position: left center;
+  }
+  .villes-left-img-item img {
+      width: 105px;
+  }
+  .villes-left-img-item {
+      margin-left: 6px;
+      display: flex;
+  }
+  .villes-left-img-item img {
+      margin-left: 20px;
+  }
+  .villes-right-content h2 {
+      font-weight: 700;
+      font-size: 33px;
+  }
+  .villes-right-content p {
+      font-weight: 500;
+      font-size: 16px;
+  }
+  .villes-right-content {
+      margin-bottom: 24px;
+  }
+  .villegs-area {
+      padding: 23px 0;
+  }
+  .nos-custom-container {
+      overflow: hidden;
+  }
+  .nos-bgs {
+      display: none;
+  }
+  .nos-offers-left {
+      padding: 42px 0 0 26px;
+  }
+  .nos-offers-left p {
+      font-weight: 400;
+      font-size: 26px;
+      margin-bottom: 13px;
+  }
+  .nos-offers-left h5 {
+      font-weight: 400;
+      font-size: 24px;
+      margin-bottom: 30px;
+  }
+  .nos-offers-left h5 span {
+      font-weight: 700;
+      font-size: 31px;
+  }
+}
+
+/*
+====================================
+Xtra Small Screen - Small Mobile
+====================================
+*/
+
+@media screen and (max-width: 576px) {
+  .hamburger {
+      display: block !important;
+  }
+  .menu-item {
+      display: none;
+  }
+  .logo {
+      display: block !important;
+  }
+  .menu-btn {
+      display: none;
+  }
+  .fixed-menu2 {
+      max-width: 100%;
+      width: 100%;
+      z-index: 99999999999999;
+      left: 0px;
+      top: 0px;
+      margin: auto;
+      transition: .2s;
+      background: #FFFFFF;
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 0px 0px 0px 0px;
+  }
+  .hero-left h2 {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 29px;
+  }
+  .tixi1 {
+      position: absolute;
+      left: 2px;
+      top: -51px;
+  }
+  .tixi2 {
+      position: absolute;
+      right: -5px;
+      top: -62px;
+      transform: rotate(310deg);
+  }
+  .tixi3 {
+      position: absolute;
+      left: 30%;
+      bottom: -46px;
+  }
+  .hero-text p {
+      font-weight: 400;
+      font-size: 13px;
+  }
+  .hero-left {
+      margin-top: 70px;
+  }
+  .hero-right {
+      position: inherit;
+      margin-top: 30px;
+  }
+  .flag-wrapper {
+      flex-wrap: wrap;
+  }
+  .flag-item {
+      width: 100%;
+      margin-bottom: 30px;
+  }
+  .ml-lf-bg img {
+      width: 608px;
+  }
+  .ml-lf-bg {
+      position: absolute;
+      left: -278px;
+      top: 51%;
+  }
+  .orderss2 {
+      order: 2;
+  }
+  .orderss1 {
+      order: 1;
+  }
+  .milions-title h3 {
+      font-weight: 700;
+      font-size: 26px;
+  }
+  .millions-de-right {
+      margin-left: 0px;
+      z-index: 99999;
+      margin-bottom: 80px;
+  }
+  .millions-de-right h3 {
+      font-weight: 600;
+      font-size: 27px;
+  }
+  .millions-de-right h3 br {
+      display: none;
+  }
+  .milions-de-wrapper {
+      background: linear-gradient(270deg, #F7FAFF 0%, rgba(247, 250, 255, 0) 100%);
+      border-radius: 0px 70px 70px 0px;
+      padding-top: 55px;
+  }
+  .drive-text-area {
+      padding: 200px 0 40px 0;
+  }
+  .drive-text-left {
+      z-index: 999;
+      position: relative;
+      margin-bottom: 65px;
+  }
+  .drive-text-left h3 {
+      font-weight: 600;
+      font-size: 29px;
+      color: #000028;
+      margin-bottom: 31px;
+  }
+  .comm-car {
+      display: none;
+  }
+  .millions-de-text-item-wrappers {
+      position: absolute;
+      top: 26px;
+      right: 0;
+  }
+  .millions-de-text-item {
+      padding: 16px 12px;
+      background: #FFFFFF;
+      border: 4px solid #F7FAFF;
+      box-shadow: 20px 20px 40px rgba(0, 0, 40, 0.15);
+      border-radius: 20px;
+      max-width: 330px;
+      display: flex;
+      padding: 9px 9px;
+      margin-bottom: 9px;
+  }
+  .millions-de-text-item ul li span {
+      font-weight: 600;
+      font-size: 10px;
+  }
+  .millions-de-text-item ul li {
+      font-weight: 400;
+      font-size: 11px;
+      line-height: 15px;
+  }
+  /* ===== */
+  .millions-de-text-item1 {
+      padding: 16px 12px;
+      padding: 7px 9px;
+      margin-bottom: 8px;
+  }
+  .millions-de-text-item1 ul li span {
+      font-weight: 700;
+      font-size: 9px;
+      line-height: 24px;
+      color: #000028;
+      margin-bottom: -6px;
+  }
+  .millions-de-text-item1 ul li h4 {
+      font-weight: 700;
+      font-size: 15px;
+  }
+  .millions-de-text-item1 ul li {
+      font-weight: 400;
+      font-size: 11px;
+  }
+  /* .evviede-venir-items1 { */
+  .evviede-venir-wrapper-area {
+      padding: 50px 21px;
+  }
+  .evviede-venir-items1 {
+      padding: 30px 0;
+      display: flex !important;
+      justify-content: space-between;
+  }
+  .envie-images1 {
+      position: initial !important;
+      display: none;
+  }
+  .envie-images2 {
+      position: initial;
+  }
+  .envie-images3 {
+      position: initial;
+      margin-top: -30px;
+  }
+  .envie-images4 {
+      position: initial;
+  }
+  .envie-images5 {
+      position: initial;
+  }
+  .envie-images6 {
+      position: initial;
+      margin-top: 40px;
+  }
+  .envie-images7 {
+      position: initial;
+  }
+  .evviede-venir-title {
+      margin-bottom: 34px;
+  }
+  .evviede-venir-title h2 {
+      font-weight: 700;
+      font-size: 25px;
+      text-align: center;
+      color: #000028;
+      margin-bottom: 25px;
+  }
+  .evviede-venir-title h2 br {
+      display: none;
+  }
+  .evviede-venir-title p br {
+      display: none;
+  }
+  /*====== footer======== */
+  .mobile-footer {
+      background: #000028;
+      display: block !important;
+  }
+  footer {
+      background: #000028;
+  }
+  .footer-container {
+      display: none;
+  }
+  /*=========== new=========== */
+  .hero-left h2 br {
+      display: none;
+  }
+  .tixi3 {
+      display: none;
+  }
+  .new-boysge-container {
+      background: linear-gradient(180deg, #F7FAFF 0%, rgba(247, 250, 255, 0) 100%);
+      border-radius: 70px 0px 0px 70px;
+      padding-top: 46px;
+      padding-left: 22px;
+      padding-right: 15px;
+  }
+  .boysge-left h2 {
+      font-weight: 800;
+      font-size: 26px;
+      letter-spacing: 7px;
+      margin-bottom: 10px;
+  }
+  .boysge-right h3 {
+      font-weight: 700;
+      font-size: 26px;
+  }
+  .boysge-right {
+      margin-left: -9px;
+      position: relative;
+  }
+  .boysge-right::before {
+      display: none !important;
+  }
+  .villes-left {
+      background-size: 347px;
+  }
+  .villes-left-img-item img {
+      width: 85px;
+  }
+  .villes-left-img-item {
+      margin-left: 6px;
+      display: flex;
+  }
+  .villes-left-img-item img {
+      margin-left: 20px;
+  }
+  .villes-right-content h2 {
+      font-weight: 700;
+      font-size: 33px;
+  }
+  .villes-right-content p {
+      font-weight: 500;
+      font-size: 16px;
+  }
+  .villes-right-content {
+      margin-bottom: 24px;
+  }
+  .villegs-area {
+      padding: 23px 0;
+  }
+  .nos-custom-container {
+      overflow: hidden;
+  }
+  .nos-bgs {
+      display: none;
+  }
+  .nos-offers-left {
+      padding: 42px 0 0 26px;
+  }
+  .nos-offers-left p {
+      font-weight: 400;
+      font-size: 26px;
+      margin-bottom: 13px;
+  }
+  .nos-offers-left h5 {
+      font-weight: 400;
+      font-size: 24px;
+      margin-bottom: 30px;
+  }
+  .nos-offers-left h5 span {
+      font-weight: 700;
+      font-size: 31px;
+  }
+}
