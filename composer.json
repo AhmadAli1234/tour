@@ -10,8 +10,7 @@
     "require": {
         "php": "^8.1",
         "aws/aws-sdk-php": "~3.0",
-        "bavix/laravel-wallet": "10.0.0",
-        "doctrine/dbal": "^3.5|^4.0",
+        "bavix/laravel-wallet": "^10.0",
         "eluceo/ical": "2.12.1",
         "fakerphp/faker": "1.23.0",
         "intervention/image": "^2.7|^3.0",
