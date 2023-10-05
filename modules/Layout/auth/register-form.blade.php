@@ -1,5 +1,22 @@
 <form class="form bravo-form-register" method="post">
     @csrf
+
+    <div class="row">
+        <div class="col-md-12">
+            <ul style="display: inline-flex; width:100%">
+                <li
+                    style="width: 50%; border: 1px solid #e4e4e4; margin: 15px; padding: 10px 30px 10px 10px; border-radius: 15px;font-size: 15px;">
+                    <input type="radio" value="1" id="acc_type" name="acc_type" checked
+                        style="margin: 10px;" />Individuel
+                </li>
+                <li
+                    style="width: 50%; border: 1px solid #e4e4e4; margin: 15px; padding: 10px 30px 10px 10px; border-radius: 15px;font-size: 15px;">
+                    <input type="radio" value="2" id="acc_type" name="acc_type" style="margin: 10px;" />Business
+                </li>
+            </ul>
+            <br />
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-6 col-md-12">
             <div class="form-group">
@@ -46,9 +63,9 @@
         <div><span class="invalid-feedback error error-g-recaptcha-response"></span></div>
     @endif
     <div class="error message-error invalid-feedback"></div>
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary form-submit">
-            {{ __('Sign Up') }}
+    <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary form-submit" style="width: 40%;">
+            Inscription
             <span class="spinner-grow spinner-grow-sm icon-loading" role="status" aria-hidden="true"></span>
         </button>
     </div>
@@ -86,6 +103,6 @@
     @endif
     <div class="c-grey f14 text-center">
        {{__(" Already have an account?")}}
-        <a href="#" data-target="#login" data-toggle="modal">{{__("Log In")}}</a>
+        <a href="#" data-target="#login" data-toggle="modal">Connexion</a>
     </div>
 </form>

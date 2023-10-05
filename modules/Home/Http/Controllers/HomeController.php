@@ -14,7 +14,19 @@ class HomeController extends Controller
      */
     public function index()
     {
+        
         return view('home::index');
+    }
+
+    public function audioguide(){
+        return view('home::audioguide');
+    }
+    public function quiz(){
+        return view('home::quiz');
+    }
+
+    public function ticket(){
+        return view('home::ticket');
     }
 
     /**

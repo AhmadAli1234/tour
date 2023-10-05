@@ -24,9 +24,9 @@
         </div>
     @endif
     <div class="error message-error invalid-feedback"></div>
-    <div class="form-group">
-        <button class="btn btn-primary form-submit" type="submit">
-            {{ __('Login') }}
+    <div class="form-group text-center">
+        <button class="btn btn-primary form-submit" style="width:40%" type="submit">
+        Connexion
             <span class="spinner-grow spinner-grow-sm icon-loading" role="status" aria-hidden="true"></span>
         </button>
     </div>
@@ -61,6 +61,6 @@
             </div>
         </div>
     @endif
-    <div class="c-grey font-medium f14 text-center"> {{__('Do not have an account?')}} <a href="" data-target="#register" data-toggle="modal">{{__('Sign Up')}}</a>
+    <div class="c-grey font-medium f14 text-center"> {{__('Do not have an account?')}} <a href="" data-target="#register" data-toggle="modal">Inscription</a>
     </div>
 </form>

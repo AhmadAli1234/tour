@@ -1,13 +1,17 @@
 <div class="modal fade login" id="login" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content relative">
-            <div class="modal-header">
-                <h4 class="modal-title">{{__('Log In')}}</h4>
+            <div class="modal-header" style="margin-left:95%">
+
                 <span class="c-pointer" data-dismiss="modal" aria-label="Close">
                     <i class="input-icon field-icon fa">
-                        <img src="{{url('images/ico_close.svg')}}" alt="close">
+                        <img src="{{ url('images/ico_close.svg') }}" alt="close">
                     </i>
                 </span>
+            </div>
+            <div class="text-center">
+                <h5 style="color: #0070F3;">Connexion</h5>
+                <p style="font-size:15px;margin-bottom:30px">Accédez à l'univers LOWXY depuis un seul compte</p>
             </div>
             <div class="modal-body relative">
                 @include('Layout::auth/login-form')
@@ -18,13 +22,16 @@
 <div class="modal fade login" id="register" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content relative">
-            <div class="modal-header">
-                <h4 class="modal-title">{{__('Sign Up')}}</h4>
+            <div class="modal-header" style="margin-left:95%">
                 <span class="c-pointer" data-dismiss="modal" aria-label="Close">
                     <i class="input-icon field-icon fa">
-                        <img src="{{url('images/ico_close.svg')}}" alt="close">
+                        <img src="{{ url('images/ico_close.svg') }}" alt="close">
                     </i>
                 </span>
+            </div>
+            <div class="text-center">
+                <h5 style="color: #0070F3;">Inscription</h5>
+                <p style="font-size:15px;margin-bottom:30px">Accédez à l'univers LOWXY depuis un seul compte</p>
             </div>
             <div class="modal-body">
                 @include('Layout::auth/register-form')

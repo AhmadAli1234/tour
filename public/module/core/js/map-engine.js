@@ -228,7 +228,6 @@
     }
 
     GmapEngine.prototype = new BaseMapEngine();
-
     GmapEngine.prototype.initScripts = function (func) {
 
         func();

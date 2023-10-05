@@ -11,7 +11,16 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', 'HomeController@index');
 Route::prefix('home')->group(function() {
     Route::get('/', 'HomeController@index');
 });
+Route::prefix('audioguide')->group(function() {
+    Route::get('/', 'HomeController@audioguide');
+});
+Route::prefix('quiz')->group(function() {
+    Route::get('/', 'HomeController@quiz');
+});
+Route::get('/ticket-new', 'HomeController@ticket');

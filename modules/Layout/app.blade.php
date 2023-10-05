@@ -48,6 +48,35 @@
     <link rel="stylesheet" href="{{ asset('libs/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
     <link href="{{ asset('libs/ion_rangeslider/css/ion.rangeSlider.css') }}" rel="stylesheet">
 
+    <!-- lowxy style -->
+
+    <link rel="icon" href="{{asset('new/images/favicon.ico')}}">
+    <!--animate-css-->
+    <link rel="stylesheet" href="{{asset('new/css/animate.css')}}">
+    <!--ziehharmonika-css-->
+    <link rel="stylesheet" href="{{asset('new/css/ziehharmsonika.css')}}">
+    <!--BOOTSTRAP-CSS-->
+    <link rel="stylesheet" href="{{asset('new/css/bootstrap.css')}}">
+    <!--SOCIAL-ICON-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!--MIN-STYLESHEET-->
+    <link rel="stylesheet" href="{{asset('new/style.css')}}" >
+    <!--RESPONSIVE-CSS-->
+    <link rel="stylesheet" href="{{asset('new/css/responsive.css')}}" >
+
+    <style>
+        input{
+            border-radius: 0;
+        }
+        .modal.show .modal-dialog {
+            transform: none;
+            margin-top: 5%;
+        }
+        body{
+            font-size:15px;
+        }
+    </style>
+
 
     {!! \App\Helpers\Assets::css() !!}
     {!! \App\Helpers\Assets::js() !!}
@@ -143,16 +172,136 @@
     {!! setting_item_with_lang_raw('body_scripts') !!}
     <div class="bravo_wrap">
         @if(!is_api())
-            @include('Layout::parts.header')
+            @include('Layout::parts.header2')
         @endif
 
         @yield('content')
 
-        @include('Layout::parts.footer')
+        @include('Layout::parts.footer2')
     </div>
+
+    @include('Layout::parts.login-register-modal')
+    @include('Layout::parts.chat')
+    @if(Auth::id())
+        @include('Media::browser')
+    @endif
+<link rel="stylesheet" href="{{asset('libs/flags/css/flag-icon.min.css')}}">
+
+{!! \App\Helpers\Assets::css(true) !!}
+
+{{--Lazy Load--}}
+<script src="{{asset('libs/lazy-load/intersection-observer.js')}}"></script>
+<script async src="{{asset('libs/lazy-load/lazyload.min.js')}}"></script>
+<script>
+    // Set the options to make LazyLoad self-initialize
+    window.lazyLoadOptions = {
+        elements_selector: ".lazy",
+        // ... more custom settings?
+    };
+
+    // Listen to the initialization event and get the instance of LazyLoad
+    window.addEventListener('LazyLoad::Initialized', function (event) {
+        window.lazyLoadInstance = event.detail.instance;
+    }, false);
+</script>
+<script src="{{ asset('libs/jquery-3.6.0.min.js') }}"></script>
+<script src="{{ asset('libs/jquery-migrate/jquery-migrate.min.js') }}"></script>
+<script src="{{ asset('libs/header.js') }}"></script>
+<script>
+    $(document).on('ready', function () {
+        $.MyTravelHeader.init($('#header'));
+    });
+</script>
+<script src="{{ asset('libs/lodash.min.js') }}"></script>
+<script src="{{ asset('libs/vue/vue'.(!env('APP_DEBUG') ? '.min':'').'.js') }}"></script>
+<script src="{{ asset('libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('libs/bootbox/bootbox.min.js') }}"></script>
+
+<script src="{{ asset('libs/fancybox/jquery.fancybox.min.js') }}"></script>
+<script src="{{ asset('libs/slick/slick.js') }}"></script>
+
+
+@if(Auth::id())
+	<script src="{{ asset('module/media/js/browser.js?_ver='.config('app.version')) }}"></script>
+@endif
+<script src="{{ asset('libs/carousel-2/owl.carousel.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset("libs/daterange/moment.min.js") }}"></script>
+<script type="text/javascript" src="{{ asset("libs/daterange/daterangepicker.min.js") }}"></script>
+<script src="{{ asset('libs/select2/js/select2.min.js') }}"></script>
+<script src="{{ asset('js/functions.js?_ver='.config('app.version')) }}"></script>
+<script src="{{asset('libs/custombox/custombox.min.js')}}"></script>
+<script src="{{asset('libs/custombox/custombox.legacy.min.js')}}"></script>
+<script src="{{ asset('libs/custombox/window.modal.js') }}"></script>
+
+@if(
+    setting_item('tour_location_search_style')=='autocompletePlace' || setting_item('hotel_location_search_style')=='autocompletePlace' || setting_item('car_location_search_style')=='autocompletePlace' || setting_item('space_location_search_style')=='autocompletePlace' || setting_item('hotel_location_search_style')=='autocompletePlace' || setting_item('event_location_search_style')=='autocompletePlace'
+)
+	{!! App\Helpers\MapEngine::scripts() !!}
+@endif
+<script src="{{ asset('libs/pusher.min.js') }}"></script>
+<script src="{{ asset('js/home.js?_ver='.config('app.version')) }}"></script>
+
+@if(!empty($is_user_page))
+	<script src="{{ asset('module/user/js/user.js?_ver='.config('app.version')) }}"></script>
+@endif
+@if(setting_item('cookie_agreement_enable')==1 and request()->cookie('booking_cookie_agreement_enable') !=1 and !is_api()  and !isset($_COOKIE['booking_cookie_agreement_enable']))
+	<div class="booking_cookie_agreement p-3 fixed-bottom">
+		<div class="container d-flex ">
+            <div class="content-cookie">{!! setting_item_with_lang('cookie_agreement_content') !!}</div>
+            <button class="btn save-cookie">{!! setting_item_with_lang('cookie_agreement_button_text') !!}</button>
+        </div>
+	</div>
+	<script>
+        var save_cookie_url = '{{route('core.cookie.check')}}';
+	</script>
+	<script src="{{ asset('js/cookie.js?_ver='.config('app.version')) }}"></script>
+@endif
+
+{!! \App\Helpers\Assets::js(true) !!}
+
+@yield('footer')
+
+@php \App\Helpers\ReCaptchaEngine::scripts() @endphp
     {!! setting_item('footer_scripts') !!}
     {!! setting_item_with_lang_raw('footer_scripts') !!}
     @php event(new \Modules\Layout\Events\LayoutEndBody()); @endphp
     @include('demo_script')
+
+    <!-- lowxy script -->
+    <!--Main-jquery-->
+    <script src="{{asset('new/js/jquery-3.4.1.min.js')}}"></script>
+        <!--wow jQuery animated  -->
+        <script src="{{asset('new/js/wow.min.js')}}"></script>
+        <script>
+            new WOW().init();
+        </script>
+        <script>
+            $(document).ready(function() {
+                $( window ).scroll(function() {
+                    var height = $(window).scrollTop();
+                    if(height >= 1) {
+                        $('.customss ').addClass('fixed-menu');
+                    } else {
+                        $('.customss ').removeClass('fixed-menu');
+                    }
+                });
+            });
+            function logout()
+            {
+                $.ajax({
+                    url : 'logout.php',
+                    type : 'POST',
+                  });
+                location.reload();
+            }
+        </script>
+        <!-- Accordian Script -->
+        <script src="{{asset('new/js/ziehharmonika.js')}}"></script>
+        <!--Bootstrap-js-->
+        <script src="{{asset('new/js/bootstrap.bundle.min.js')}}"></script>
+        <!--Custom-js-->
+        <script src="{{asset('new/js/custom.js')}}"></script>
+        <!--Scroll-top	-->
+        <a href="#" class="scrolltotop"><i class="fa-solid fa-angle-up"></i></a>
 </body>
 </html>
