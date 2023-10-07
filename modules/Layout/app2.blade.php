@@ -35,12 +35,11 @@
         <![endif]-->
 
 
-        @include('Layout::parts.header2')
+        @include('Layout::parts.header2',['header'=>'lowxy'])
 
         @yield('content')
         
         @include('Layout::parts.footer2')
-
 
         <!--Main-jquery-->
         <script src="{{asset('new/js/jquery-3.4.1.min.js')}}"></script>

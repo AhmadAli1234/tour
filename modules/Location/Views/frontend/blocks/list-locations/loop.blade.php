@@ -10,13 +10,14 @@
         $link_location = $row->getLinkForPageSearch($service_type);
     }
 @endphp
-<div class="{{ $min_height ?? 'min-height-350'}} bg-img-hero rounded-border p-5 gradient-overlay-half-bg-gradient transition-3d-hover shadow-hover-2 border-0 dropdown"
+<div class="{{ $min_height ?? 'min-height-350'}} bg-img-hero rounded-border p-2 gradient-overlay-half-bg-gradient transition-3d-hover shadow-hover-2 border-0 dropdown"
      style="background-image: url({{$row->getImageUrl()}});">
     <div class="w-100 d-flex justify-content-between mb-2">
         <div class="position-relative">
-            <a href="{{$row->getDetailUrl()}}" class="destination text-white font-weight-bold font-size-21 pb-3 mb-3 text-lh-1 d-block">
+            <a href="{{$row->getDetailUrl()}}" class="destination text-white font-weight-bold font-size-21 text-lh-1 d-block">
                 {{$translation->name}}
             </a>
+            {{--
             <div class="destination-dropdown v1">
                 @if(is_array($service_type))
                     <div class="desc">
@@ -39,6 +40,7 @@
                     @endif
                 @endif
             </div>
+            --}}
         </div>
     </div>
 </div>

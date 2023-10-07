@@ -1,3 +1,16 @@
+<style>
+    .hero-tab-pane{
+        border-radius: 10px;
+        margin-top: 10%;
+    }
+    .hero-tab-pane .tab-pane .card{
+        border-radius: 70px;
+    }
+    .border-radius-3 {
+        border-radius: 35px !important;
+        margin-left: 60px;
+    }
+</style>
 <div class="bravo-form-search-all hero-block hero-v1 bg-img-hero-bottom gradient-overlay-half-black-gradient text-center z-index-2" style="background-image: url('{{$bg_image_url}}') !important;">
     <div class="container space-2 space-top-xl-4">
         <div class="row justify-content-center pb-xl-8">
@@ -9,6 +22,7 @@
         </div>
         @if(empty($hide_form_search))
             <div class="mb-lg-n1">
+                {{--
                 <ul class="nav tab-nav-rounded flex-nowrap pb-2 pb-md-4 tab-nav @if(!empty($single_form_search)) d-none @endif" role="tablist">
                     @if(!empty($service_types))
                         @php $number = 0; @endphp
@@ -34,6 +48,7 @@
                         @endforeach
                     @endif
                 </ul>
+                --}}
                 <div class="tab-content hero-tab-pane">
                     @if(!empty($service_types))
                         @php $number = 0; @endphp

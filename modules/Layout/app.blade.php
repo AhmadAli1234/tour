@@ -172,7 +172,7 @@
     {!! setting_item_with_lang_raw('body_scripts') !!}
     <div class="bravo_wrap">
         @if(!is_api())
-            @include('Layout::parts.header2')
+            @include('Layout::parts.header2',['header'=>'tour'])
         @endif
 
         @yield('content')
