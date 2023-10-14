@@ -83,7 +83,7 @@
     <script>
         var myTravel = {
             url:'{{url( app_get_locale() )}}',
-            url_root:'{{ url('') }}',
+            url_root:'{{ url('/') }}',
             booking_decimals:{{(int)get_current_currency('currency_no_decimal',2)}},
             thousand_separator:'{{get_current_currency('currency_thousand')}}',
             decimal_separator:'{{get_current_currency('currency_decimal')}}',

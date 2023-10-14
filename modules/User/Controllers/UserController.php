@@ -38,12 +38,11 @@ class UserController extends FrontendController
 
     public function dashboard(Request $request)
     {
-        $this->checkPermission('dashboard_vendor_access');
         $user_id = Auth::id();
         $data = [
             'cards_report'       => Booking::getTopCardsReportForVendor($user_id),
             'earning_chart_data' => Booking::getEarningChartDataForVendor(strtotime('monday this week'), time(), $user_id),
-            'page_title'         => __("Vendor Dashboard"),
+            'page_title'         => is_vendor()?__("Vendor Dashboard"):'Customer Dashboard',
             'breadcrumbs'        => [
                 [
                     'name'  => __('Dashboard'),
@@ -51,7 +50,14 @@ class UserController extends FrontendController
                 ]
             ]
         ];
-        return view('User::frontend.dashboard', $data);
+        if(is_vendor()){
+            $this->checkPermission('dashboard_vendor_access');
+          
+            return view('User::frontend.dashboard', $data);
+        }
+        else{
+            return view('User::frontend.customer-dashboard', $data);
+        }
     }
 
     public function reloadChart(Request $request)

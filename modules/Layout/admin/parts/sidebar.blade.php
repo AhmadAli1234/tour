@@ -7,28 +7,61 @@ $menus = [
         "position"=>0
     ],
     'review'=>[
-        "position"=>50,
+        "position"=>60,
         'url'   => 'admin/module/review',
         'title' => __("Reviews"),
         'icon'  => 'icon ion-ios-text',
         'permission' => 'review_manage_others',
     ],
     'menu'=>[
-        "position"=>60,
+        "position"=>70,
         'url'        => 'admin/module/core/menu',
         'title'      => __("Menu"),
         'icon'       => 'icon ion-ios-apps',
         'permission' => 'menu_view',
     ],
+    'interest'=>[
+        "position"=>50,
+        'url' => 'admin/module/interest',
+        'title'      => 'Interests',
+        'icon'       => 'icon ion-ios-apps',
+        'permission' => 'interest',
+    ],
+    'advertisement'=>[
+        "position"=>60,
+        'url' => 'admin/module/advertisement',
+        'title'      => 'Advertisement',
+        'icon'       => 'icon ion-ios-apps',
+        'permission' => 'advertisement',
+    ],
+    'quiz'=>[
+        "position"=>40,
+        'url'        => 'admin/module/quiz',
+        'title'      => __("Quiz"),
+        'icon'       => 'ion-md-bookmarks',
+        'permission' => 'quiz_view',
+        'children'   => [
+            'quiz_view'=>[
+                'url'        => 'admin/module/quiz',
+                'title'      => __("All Quiz"),
+                'permission' => 'quiz_view',
+            ],
+            'quiz_create'=>[
+                'url'        => 'admin/module/quiz/create',
+                'title'      => __("Add Quiz"),
+                'permission' => 'quiz_create',
+            ],
+        ]
+    ],
     'template'=>[
-        "position"=>70,
+        "position"=>80,
         'url'        => 'admin/module/template',
         'title'      => __('Templates'),
         'icon'       => 'icon ion-logo-html5',
         'permission' => 'template_create',
     ],
     'general'=>[
-        "position"=>80,
+        "position"=>90,
         'url'        => 'admin/module/core/settings/index/general',
         'title'      => __('Setting'),
         'icon'       => 'icon ion-ios-cog',
@@ -36,7 +69,7 @@ $menus = [
         'children'   => \Modules\Core\Models\Settings::getSettingPages()
     ],
     'tools'=>[
-        "position"=>90,
+        "position"=>100,
         'url'      => 'admin/module/core/tools',
         'title'    => __("Tools"),
         'icon'     => 'icon ion-ios-hammer',
