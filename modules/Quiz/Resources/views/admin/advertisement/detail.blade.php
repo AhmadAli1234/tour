@@ -1,12 +1,12 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    <form action="{{route('quiz.admin.store',['id'=>($row->id) ? $row->id : '-1'])}}" method="post" class="dungdt-form">
+    <form action="{{route('advertisement.admin.store',['id'=>($row->id) ? $row->id : '-1'])}}" enctype="multipart/form-data" method="post" class="dungdt-form">
     @csrf
         <div class="container-fluid">
             <div class="d-flex justify-content-between mb20">
                 <div class="">
-                    <h1 class="title-bar">{{$row->id ? 'Edit quiz: '.$row->title :'Add new Quiz'}}</h1>
+                    <h1 class="title-bar">{{$row->id ? 'Edit Advertisement: '.$row->title :'Add new Advertisement'}}</h1>
                     
                 </div>
                 <div class="title-actions">
@@ -20,10 +20,10 @@
                     
                     <div class="col-md-9">
                         <div class="panel">
-                            <div class="panel-title"><strong>Quiz content</strong></div>
+                            <div class="panel-title"><strong>Advertisement content</strong></div>
                             <div class="panel-body">
                                 
-                                @include('quiz::admin.quiz.form',['row'=>$row??''])
+                                @include('quiz::admin.advertisement.form',['row'=>$row??''])
                             </div>
                         </div>
                     </div>

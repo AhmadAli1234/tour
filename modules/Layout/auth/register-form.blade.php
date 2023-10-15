@@ -5,13 +5,17 @@
         <div class="col-md-12">
             <ul style="display: inline-flex; width:100%">
                 <li
-                    style="width: 50%; border: 1px solid #e4e4e4; margin: 15px; padding: 10px 30px 10px 10px; border-radius: 15px;font-size: 15px;">
-                    <input type="radio" value="1" id="acc_type" name="acc_type" checked
-                        style="margin: 10px;" />Individuel
+                    style="width: 33%; border: 1px solid #e4e4e4; margin: 15px; padding: 10px 30px 10px 10px; border-radius: 15px;font-size: 15px;" class="d-flex">
+                    <input type="radio" value="individual" id="user_type" name="user_type" checked
+                        style="margin: 10px;" /><p style="margin-top: 5px;">Individuel</p>
                 </li>
                 <li
-                    style="width: 50%; border: 1px solid #e4e4e4; margin: 15px; padding: 10px 30px 10px 10px; border-radius: 15px;font-size: 15px;">
-                    <input type="radio" value="2" id="acc_type" name="acc_type" style="margin: 10px;" />Business
+                    style="width: 33%; border: 1px solid #e4e4e4; margin: 15px; padding: 10px 30px 10px 10px; border-radius: 15px;font-size: 15px;" class="d-flex">
+                    <input type="radio" value="business" id="user_type" name="user_type" style="margin: 10px;" /><p style="margin-top: 5px;">Business</p>
+                </li>
+                <li
+                    style="width: 33%; border: 1px solid #e4e4e4; margin: 15px; padding: 10px 30px 10px 10px; border-radius: 15px;font-size: 15px;" class="d-flex">
+                    <input type="radio" value="affiliate" id="user_type" name="user_type" style="margin: 10px;" /><p style="margin-top: 5px;">Affliliate</p>
                 </li>
             </ul>
             <br />

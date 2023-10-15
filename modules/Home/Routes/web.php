@@ -24,3 +24,7 @@ Route::prefix('quiz')->group(function() {
     Route::get('/', 'HomeController@quiz');
 });
 Route::get('/ticket-new', 'HomeController@ticket');
+
+Route::middleware(['auth'])->group(function(){
+    Route::get('/user/profile-detail','HomeController@profileDetail')->name('user.profile-detail');
+});

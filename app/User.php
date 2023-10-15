@@ -54,6 +54,7 @@
             'avatar_id',
             'bio',
             'business_name',
+            'user_type'
         ];
 
         /**

@@ -1,11 +1,18 @@
 @extends('admin.layouts.app')
-@section('title','Quiz')
+@section('title','Advertisement')
 @section('content')
+<style>
+        /* Apply CSS styles to the iframe */
+        iframe {
+            width: 300px; /* Set the desired width */
+            height: 150px; /* Set the desired height */
+        }
+    </style>
     <div class="container-fluid">
         <div class="d-flex justify-content-between mb20">
-            <h1 class="title-bar">{{__("All quiz")}}</h1>
+            <h1 class="title-bar">{{__("All Advertisement")}}</h1>
             <div class="title-actions">
-                <a href="{{url('admin/module/quiz/create')}}" class="btn btn-primary">Add new Quiz</a>
+                <a href="{{url('admin/module/advertisement/create')}}" class="btn btn-primary">Add new Advertisement</a>
             </div>
         </div>
         @include('admin.message')
@@ -21,25 +28,35 @@
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
-                                    <th width="20%" class="title">Question</th>
-                                    <th >Answer</th>
+                                    <th class="title">Content</th>
                                     <th width="130px">Interest</th>
                                     <th width="15%"></th>
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody> 
                                 @if($rows->total() > 0)
                                     @foreach($rows as $row)
                                         <tr>
-                                            <td class="title">
-                                                {{$row->question??''}}
+                                            <td>
+                                                @if($row->website_url)
+                                                    <a target="blank" href="{{$row->website_url}}">click here to open website <br>{{$row->website_url}}</a>
+                                                @elseif($row->advertisement)
+                                                    {!! $row->advertisement !!}
+                                                @else
+
+                                                @php
+                                                $extension = pathinfo($row->video, PATHINFO_EXTENSION);
+                                                @endphp
+                                                <video width="300" height="150" controls>
+                                                    <source src="{{asset($row->video)}}" type="video/{{$extension}}">
+                                                </video>
+                                                @endif
                                             </td>
-                                            <td>{!!$row->answer ?? '' !!}</td>
                                             <td class="title">{{$row->interest->name??''}} </td>
                                             <td>
                                                 <div class="d-flex">
-                                                    <a href="{{route('quiz.admin.edit',['id'=>$row->id])}}" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i> {{__('Edit')}}</a>
-                                                    <a href="{{route('quiz.admin.delete',['id'=>$row->id])}}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> {{__('Delete')}}</a>
+                                                    <a href="{{route('advertisement.admin.edit',['id'=>$row->id])}}" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i> {{__('Edit')}}</a>
+                                                    <a href="{{route('advertisement.admin.delete',['id'=>$row->id])}}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> {{__('Delete')}}</a>
                                                 </div>
                                             </td>
                                         </tr>
