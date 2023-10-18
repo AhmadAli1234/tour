@@ -27,4 +27,5 @@ Route::get('/ticket-new', 'HomeController@ticket');
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/user/profile-detail','HomeController@profileDetail')->name('user.profile-detail');
+    Route::post('/user/profile-detail-store','HomeController@profileDetailStore')->name('user.profile-detail-store');
 });

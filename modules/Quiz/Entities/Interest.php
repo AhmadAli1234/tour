@@ -19,4 +19,8 @@ class Interest extends Model
     public function parent(){
         return $this->belongsTo(Interest::class,'parent_id','id');
     }
+
+    public function childs(){
+        return $this->hasMany(Interest::class,'parent_id','id');
+    }
 }

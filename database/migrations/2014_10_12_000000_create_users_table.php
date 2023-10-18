@@ -37,7 +37,6 @@ class CreateUsersTable extends Migration
             $table->integer('update_user')->nullable();
             $table->integer('vendor_commission_amount')->nullable();
             $table->string('vendor_commission_type',30)->nullable();
-            $table->string('user_type')->default('individual');
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

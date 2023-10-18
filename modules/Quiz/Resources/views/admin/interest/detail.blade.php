@@ -34,7 +34,7 @@
                                 <div class="panel-body">
                                     <div class="form-group">
                                         <label>Interest</label>
-                                        <select name="parent_id" class="form-control" required>
+                                        <select name="parent_id" class="form-control">
                                             <option value="">{{ __('-- Please Select --')}} </option>
                                             @isset($interests)
                                                 @foreach($interests as $interest)
