@@ -20,12 +20,14 @@ Route::prefix('home')->group(function() {
 Route::prefix('audioguide')->group(function() {
     Route::get('/', 'HomeController@audioguide');
 });
-Route::prefix('quiz')->group(function() {
-    Route::get('/', 'HomeController@quiz');
-});
 Route::get('/ticket-new', 'HomeController@ticket');
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/user/profile-detail','HomeController@profileDetail')->name('user.profile-detail');
     Route::post('/user/profile-detail-store','HomeController@profileDetailStore')->name('user.profile-detail-store');
+    Route::prefix('quiz')->group(function() {
+        Route::get('/', 'HomeController@quiz');
+        Route::post('/store','HomeController@storeQuiz')->name('quiz.store');
+        Route::get('/ads','HomeController@ads')->name('quiz.ads');
+    });
 });

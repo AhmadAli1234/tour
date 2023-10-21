@@ -5,7 +5,7 @@
 <div class="form-group">
     <label class="control-label">Answer</label>
     <div class="">
-        <textarea name="answer" class="d-none has-ckeditor" cols="30" rows="10">{{$row->answer}}</textarea>
+        <textarea name="answer" class="form-control" cols="30" rows="10">{{$row->answer}}</textarea>
     </div>
 </div>
  

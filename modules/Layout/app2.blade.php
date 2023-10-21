@@ -69,9 +69,11 @@
             }
         </script>
         <!-- Accordian Script -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="{{asset('new/js/ziehharmonika.js')}}"></script>
         <!--Bootstrap-js-->
         <script src="{{asset('new/js/bootstrap.bundle.min.js')}}"></script>
+        
         <!--Custom-js-->
         <script src="{{asset('new/js/custom.js')}}"></script>
         <!--Scroll-top	-->
