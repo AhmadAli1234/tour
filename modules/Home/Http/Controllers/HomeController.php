@@ -29,20 +29,28 @@ class HomeController extends Controller
         return view('home::audioguide');
     }
     public function quiz(){
-        $prefrences = Auth::user()->prefrences;
-        $prefrences = explode(',',$prefrences);
-        $quiz = Quiz::query();
-        if($prefrences){
-            $quiz->whereIn('interest_id',$prefrences);
-        }
-        $result = $quiz->inRandomOrder()->first();
-        if($result !=''){
-            $question = $result;
+        $user_id = Auth::user()->id;
+        $attemps = QuizAttemp::where('user_id',$user_id)->count() + 1;
+        if($attemps < 4){
+            $attemped_quiz_ids = QuizAttemp::where('user_id',$user_id)->get()->pluck('quiz_id');
+            $prefrences = Auth::user()->prefrences;
+            $prefrences = explode(',',$prefrences);
+            $quiz = Quiz::query();
+            if($prefrences){
+                $quiz->whereIn('interest_id',$prefrences);
+            }
+            $result = $quiz->inRandomOrder()->first();
+            if($result !=''){
+                $question = $result;
+            }
+            else{
+                $question = Quiz::inRandomOrder()->first();
+            }
+            return view('home::quiz',compact('question','attemps'));
         }
         else{
-            $question = Quiz::inRandomOrder()->first();
+            return redirect('/quiz/ads-result');
         }
-        return view('home::quiz',compact('question'));
     }
 
     public function ticket(){
@@ -103,7 +111,7 @@ class HomeController extends Controller
             }
         }
         else{
-            return redirect('/quiz/ads')->with(['ads'=>$advertisements]);
+            return redirect('/quiz/ads-result');
 
         }
     }
@@ -114,5 +122,25 @@ class HomeController extends Controller
         $ad_ids = json_decode($quiz->advertisement_ids);
         $ads = Advertisement::whereIn('id',$ad_ids)->get();
         return view('home::ads',compact('ads'));
+    }
+
+    public function adsResult(){
+        $user_id = Auth::user()->id;
+        $quiz = QuizAttemp::where('user_id',$user_id)->count();
+        if($quiz >= 3){
+            $result_count = QuizAttemp::where('user_id',$user_id)->where('result',true)->count();
+            if($result_count <3){
+                $message = 'You Loose the Quiz';
+                $status = 'fail';
+            }
+            else{
+                $message = 'You Win the Quiz';
+                $status = 'pass';
+            }
+            return view('home::ads-result',compact('message','status','result_count'));
+        }
+        else{
+            return redirect('/quiz');
+        }
     }
 }

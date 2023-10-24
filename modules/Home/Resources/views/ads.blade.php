@@ -68,34 +68,35 @@
 }
 
 </style>
+
+
 <center>
-    <div class="container">
-        <br><br>
+        <br>
         <!-- Button trigger modal -->
         <div class="container">
-
-           
             <br><br>
             @isset($ads)
             @foreach($ads as $row)
                 @if($row->website_url)
-                    <a target="blank" href="{{$row->website_url}}">click here to open website <br>{{$row->website_url}}</a>
+                    <a target="blank" href="{{$row->website_url}}"  style="position:relative"><div style="background-image: url('{{asset('new/images/video.jpg')}}'); width:400px; height:300px; background-repeat: round;"><h4 style=" color:white;padding-top: 32%;">Click to open Website</h4></div></a>
                 @elseif($row->advertisement)
-                <div id="openModal">
-                    {!! $row->advertisement !!}
-                </div>
-                @else
-
                 @php
-                $extension = pathinfo($row->video, PATHINFO_EXTENSION);
+                $html = $row->advertisement;
+
+                    if (preg_match('/<iframe[^>]*src=["\']([^"\']+)["\'][^>]*>/', $html, $matches)) {
+                        $src = $matches[1];
+                    }
                 @endphp
-                <video width="300" height="150" controls>
-                    <source src="{{asset($row->video)}}" type="video/{{$extension}}">
-                </video>
+                <div style="background-image: url('{{asset('new/images/website.jpg')}}'); width:400px; height:300px; background-repeat: round;" onclick="openModal('{{$src}}')"><h4 style=" color:white;padding-top: 32%;">Click to Play</h4></div>
+                @else
+                <div style="background-image: url('{{asset('new/images/website.jpg')}}'); width:400px; height:300px; background-repeat: round;" onclick="openModal('{{asset($row->video)}}')"><h4 style=" color:white;padding-top: 32%;">Click to Play</h4></div>
+
                 @endif
                 <br><br>
             @endforeach
             @endisset
+
+            
 
             <!-- Modal -->
         
@@ -110,6 +111,15 @@
     
 </center>
 
+
+<div class="d-none row" id="next">
+    <div class="col-md-12">
+       <a href="{{url('/quiz')}}"> <button type="button" class="btn btn-success" style="float: right;">Next</button></a>
+    </div>
+    <br> <br>
+</div>
+
+<script src="{{asset('new/js/jquery-3.4.1.min.js')}}"></script>
 <script>
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -119,25 +129,6 @@ document.addEventListener("DOMContentLoaded", function() {
     var videoFrame = document.getElementById("videoFrame");
     var isModalClosable = false;
 
-    openButton.addEventListener("click", function() {
-        modal.style.display = "block";
-        var videoID = "uuCFRaFWjwY"; // Replace with your YouTube video ID
-        videoFrame.src = "https://www.youtube.com/embed/" + videoID +'?autoplay=1';
-
-        // Allow modal to be closed after 60 seconds
-        setTimeout(function() {
-            isModalClosable = true;
-            closeButton.style.display = "block"; // Show the close button
-        }, 60000);
-    });
-
-    closeButton.addEventListener("click", function() {
-        if (isModalClosable) {
-            modal.style.display = "none";
-            videoFrame.src = "";
-        }
-    });
-
     modal.addEventListener("click", function(event) {
         if (event.target === modal && !isModalClosable) {
             // Prevent modal from being closed when clicking outside
@@ -145,27 +136,29 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
-    $(document).ready(function () {
-        // Gets the video src from the data-src on each button
-        var $videoSrc;
-        $('.video-btn').click(function () {
-            $videoSrc = $(this).data("src");
-        });
-        console.log($videoSrc);
+var modal = document.getElementById("videoModal");
+    var openButton = document.getElementById("openModal");
+    var closeButton = document.getElementById("closeButton");
+    var nextButton = document.getElementById("next");
+    var videoFrame = document.getElementById("videoFrame");
+    var isModalClosable = false;
+function openModal(videoSrc) {
+    
+        modal.style.display = "block";
+        videoFrame.src = videoSrc +'?autoplay=1';
 
-        // when the modal is opened autoplay it  
-        $('#myModal').on('shown.bs.modal', function (e) {
+        // Allow modal to be closed after 60 seconds
+        setTimeout(function() {
+            isModalClosable = true;
+            $('#next').removeClass('d-none');// Show the close button
+        }, 30000);
+    };
 
-            // set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
-            $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
-
-        })
-
-        // stop playing the youtube video when I close the modal
-        $('#myModal').on('hide.bs.modal', function (e) {
-            // a poor man's stop video
-            $("#video").attr('src', $videoSrc);
-        })
+    $(document).on("click",'#closeButton', function() {
+        if (isModalClosable) {
+            modal.style.display = "none";
+            videoFrame.src = "";
+        }
     });
 
 </script>

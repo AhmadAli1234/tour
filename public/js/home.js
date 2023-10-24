@@ -322,7 +322,7 @@ jQuery(function ($) {
                 }
             }
         });
-    })
+    });
     $('.bravo-form-register [type=submit]').on('click',function (e) {
         e.preventDefault();
         let form = $(this).closest('.bravo-form-register');

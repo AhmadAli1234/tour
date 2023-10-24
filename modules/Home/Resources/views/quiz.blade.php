@@ -34,7 +34,7 @@
                     <div class="col-md-12 col-lg-12">
                         <div class="evviede-venir-title" id="quizz" style="opacity: 1; transition: all 0.5s ease 0s;">
                             <input value="1" id="step" hidden="">
-                            <h1 style="text-align: left;">1/3</h1>
+                            <h1 style="text-align: left;">{{$attemps??'0'}}/3</h1>
                             <p></p>
                             <h2 style="font-size: 25px; background: #f6ebff; border-radius: 20px;">
                                 {{$question->question??''}} </h2>

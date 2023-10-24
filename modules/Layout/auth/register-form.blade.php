@@ -1,23 +1,24 @@
 <form class="form bravo-form-register" method="post">
     @csrf
-
-    <div class="row">
+<input type="hidden" name="user_type" class="user_type" value="">
+    <div class="row ">
         <div class="col-md-12">
             <ul style="display: inline-flex; width:100%">
                 <li
-                    style="width: 33%; border: 1px solid #e4e4e4; margin: 15px; padding: 10px 30px 10px 10px; border-radius: 15px;font-size: 15px;" class="d-flex">
-                    <input type="radio" value="individual" id="user_type" name="user_type" checked
-                        style="margin: 10px;" /><p style="margin-top: 5px;">Individuel</p>
+                    style="border: 1px solid #e4e4e4; margin: 15px; padding: 10px 30px 10px 10px; border-radius: 15px;font-size: 15px;" class="d-flex">
+                    <input type="radio" value="individual" onclick="getUserType('individual')" name="usr_type" 
+                        style="margin: 10px;" /><p style="margin-top: 5px;">Individual</p>
                 </li>
                 <li
-                    style="width: 33%; border: 1px solid #e4e4e4; margin: 15px; padding: 10px 30px 10px 10px; border-radius: 15px;font-size: 15px;" class="d-flex">
-                    <input type="radio" value="business" id="user_type" name="user_type" style="margin: 10px;" /><p style="margin-top: 5px;">Business</p>
+                    style="border: 1px solid #e4e4e4; margin: 15px; padding: 10px 30px 10px 10px; border-radius: 15px;font-size: 15px;" class="d-flex">
+                    <input type="radio" value="business" onclick="getUserType('business')" name="usr_type" style="margin: 10px;" /><p style="margin-top: 5px;">Business</p>
                 </li>
                 <li
-                    style="width: 33%; border: 1px solid #e4e4e4; margin: 15px; padding: 10px 30px 10px 10px; border-radius: 15px;font-size: 15px;" class="d-flex">
-                    <input type="radio" value="affiliate" id="user_type" name="user_type" style="margin: 10px;" /><p style="margin-top: 5px;">Affliliate</p>
+                    style=" border: 1px solid #e4e4e4; margin: 15px; padding: 10px 30px 10px 10px; border-radius: 15px;font-size: 15px;" class="d-flex">
+                    <input type="radio" value="affiliate" onclick="getUserType('affiliate')" name="usr_type" style="margin: 10px;" /><p style="margin-top: 5px;">Affliliate</p>
                 </li>
             </ul>
+            <span class="invalid-feedback error error-user_type"></span>
             <br />
         </div>
     </div>
@@ -70,7 +71,6 @@
     <div class="form-group text-center">
         <button type="submit" class="btn btn-primary form-submit" style="width: 40%;">
             Inscription
-            <span class="spinner-grow spinner-grow-sm icon-loading" role="status" aria-hidden="true"></span>
         </button>
     </div>
     @if(setting_item('facebook_enable') or setting_item('google_enable') or setting_item('twitter_enable'))

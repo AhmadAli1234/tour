@@ -3,10 +3,23 @@
 
 @endsection
 @section('content')
+<style>
+    .alert-bar {
+    background-color: #f44336; /* Red background color */
+    color: white !important; /* White text color */
+    padding-left:10px;
+    }
+    .alert-bar p{
+        color: white !important;
+    }
+</style>
     <h2 class="title-bar">
         {{__("Settings")}}
         <a href="{{route('user.change_password')}}" class="btn-change-password">{{__("Change Password")}}</a>
     </h2>
+    <div class="alert-bar">
+        <p>Please Enter your Bank Details.</p>
+    </div>
     @include('admin.message')
     <form action="{{route('user.profile.update')}}" method="post" class="input-has-icon">
         @csrf
@@ -78,7 +91,31 @@
                     </div>
                 </div>
             </div>
+            
             <div class="col-md-6">
+                <div class="form-title">
+                    <strong>Bank Details</strong>
+                </div>
+                <div class="form-group">
+                    <label>Bank Name</label>
+                    <input type="text" value="{{old('bank_name',$dataUser->bank_name)}}" name="bank_name" placeholder="Name" class="form-control">
+                    <i class="fa fa-location-arrow input-icon"></i>
+                </div>
+                <div class="form-group">
+                    <label>Account No</label>
+                    <input type="text" value="{{old('bank_account_no',$dataUser->bank_account_no)}}" name="bank_account_no" placeholder="Account no" class="form-control">
+                    <i class="fa fa-location-arrow input-icon"></i>
+                </div>
+                <div class="form-group">
+                    <label>IBAN</label>
+                    <input type="text" value="{{old('bank_iban',$dataUser->bank_iban)}}" name="bank_iban" placeholder="IBAN no" class="form-control">
+                    <i class="fa fa-location-arrow input-icon"></i>
+                </div>
+                <div class="form-group">
+                    <label>Other Information</label>
+                    <textarea  name="bank_other_info" rows="5" placeholder="Put other information here" class="form-control">{{old('bank_other_info',$dataUser->bank_other_info)}}</textarea>
+                </div>
+
                 <div class="form-title">
                     <strong>{{__("Location Information")}}</strong>
                 </div>

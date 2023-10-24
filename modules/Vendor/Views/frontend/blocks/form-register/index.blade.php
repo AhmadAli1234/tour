@@ -9,27 +9,6 @@
                 <p class="sub-heading">{{$desc}}</p>
                 <form class="form bravo-form-register-vendor" method="post" action="{{route('vendor.register')}}">
                     @csrf
-                    <div class="row">
-                        <div class="col-md-12">
-                            <ul style="display: inline-flex; width:100%">
-                                <li
-                                    style="width: 33%; border: 1px solid #e4e4e4; margin: 15px; padding: 10px 30px 10px 10px; border-radius: 15px;font-size: 15px;" class="d-flex">
-                                    <input type="radio" value="individual" id="user_type" name="user_type" checked
-                                        style="margin: 10px;" /><p style="margin-top: 5px;">Individuel</p>
-                                </li>
-                                <li
-                                    style="width: 33%; border: 1px solid #e4e4e4; margin: 15px; padding: 10px 30px 10px 10px; border-radius: 15px;font-size: 15px;" class="d-flex">
-                                    <input type="radio" value="business" id="user_type" name="user_type" style="margin: 10px;" /><p style="margin-top: 5px;">Business</p>
-                                </li>
-                                <li
-                                    style="width: 33%; border: 1px solid #e4e4e4; margin: 15px; padding: 10px 30px 10px 10px; border-radius: 15px;font-size: 15px;" class="d-flex">
-                                    <input type="radio" value="affiliate" id="user_type" name="user_type" style="margin: 10px;" /><p style="margin-top: 5px;">Affliliate</p>
-                                </li>
-                            </ul>
-                            <br />
-                        </div>
-                    </div>
-
                     <div class="form-group">
                         <input type="text" class="form-control" name="first_name" autocomplete="off" placeholder="{{__("First Name")}}">
                         <span class="invalid-feedback error error-first_name"></span>

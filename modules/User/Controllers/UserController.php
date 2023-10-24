@@ -269,6 +269,7 @@ class UserController extends FrontendController
             ],
             'phone'       => ['required','unique:users'],
             'term'       => ['required'],
+            'user_type'       => ['required'],
         ];
         $messages = [
             'phone.required'      => __('Phone is required field'),
@@ -278,6 +279,7 @@ class UserController extends FrontendController
             'first_name.required' => __('The first name is required field'),
             'last_name.required'  => __('The last name is required field'),
             'term.required'       => __('The terms and conditions field is required'),
+            'user_type.required'       =>'User Type field is required',
         ];
         if (ReCaptchaEngine::isEnable() and setting_item("user_enable_register_recaptcha")) {
             $codeCapcha = $request->input('g-recaptcha-response');
@@ -318,7 +320,7 @@ class UserController extends FrontendController
             return response()->json([
                 'error'    => false,
                 'messages' => false,
-                'redirect' => $request->input('redirect') ?? $request->headers->get('referer') ?? url(app_get_locale(false, '/'))
+                'redirect' => $request->input('user_type') == 'individual' ? url('/user/profile-detail'): url(app_get_locale(false, '/'))
             ], 200);
         }
     }
