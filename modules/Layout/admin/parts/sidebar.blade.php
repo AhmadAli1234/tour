@@ -34,20 +34,6 @@ $menus = [
         'icon'       => 'icon ion-ios-apps',
         'permission' => 'advertisement',
     ],
-    'advertisement'=>[
-        "position"=>10,
-        'url' => 'user/dashboard',
-        'title'      => 'Dashboard',
-        'icon'       => 'icon ion-ios-apps',
-        'permission' => 'customer_dashboard',
-    ],
-    'advertisement'=>[
-        "position"=>10,
-        'url' => 'user/dashboard',
-        'title'      => 'Dashboard',
-        'icon'       => 'icon ion-ios-apps',
-        'permission' => 'affiliate_dashboard',
-    ],
     'quiz'=>[
         "position"=>40,
         'url'        => 'admin/module/quiz',
