@@ -23,6 +23,7 @@ use App\Helpers\ReCaptchaEngine;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Modules\Booking\Models\Enquiry;
 use Illuminate\Support\Str;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class UserController extends FrontendController
 {
@@ -55,9 +56,31 @@ class UserController extends FrontendController
           
             return view('User::frontend.dashboard', $data);
         }
+        elseif(isset(Auth::user()->user_type)&&Auth::user()->user_type=='business'){
+            return view('User::frontend.business-dashboard', $data);
+        }
+        elseif(isset(Auth::user()->user_type)&&Auth::user()->user_type=='affiliate'){
+            return view('User::frontend.affiliate-dashboard', $data);
+        }
         else{
             return view('User::frontend.customer-dashboard', $data);
         }
+    }
+
+    public function downloadQR()
+    {
+        $qrCode = QrCode::size(200)
+        ->format('png')
+        ->generate('https://lowxy.fr');
+        $qrCodePath = public_path('qr-codes'); // Save the image in the public directory
+        if (!file_exists($qrCodePath)) {
+            mkdir($qrCodePath);
+        }
+
+        $qrCodeFile = 'qr-code.png';
+        $qrCode->save($qrCodePath . '/' . $qrCodeFile);
+        $filePath = $qrCodePath . '/' . $qrCodeFile;
+        return response()->download($filePath, $qrCodeFile, ['Content-Type' => 'image/png']);
     }
 
     public function reloadChart(Request $request)

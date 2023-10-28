@@ -54,7 +54,11 @@
             'avatar_id',
             'bio',
             'business_name',
-            'user_type'
+            'user_type',
+            'bank_name',
+            'bank_account_no',
+            'bank_iban',
+            'bank_other_info'
         ];
 
         /**

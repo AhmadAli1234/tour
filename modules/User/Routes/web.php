@@ -9,6 +9,7 @@ Route::group(['prefix'=>'user','middleware' => ['auth','verified']],function(){
 
     Route::get('/profile','UserController@profile')->name("user.profile.index");
     Route::post('/profile','UserController@profileUpdate')->name("user.profile.update");
+    Route::get('/downloadQr','UserController@downloadQR')->name("user.profile.download_qr");
     Route::get('/profile/change-password','UserController@changePassword')->name("user.change_password");
     Route::post('/profile/change-password','UserController@changePasswordUpdate')->name("user.change_password.update");
     Route::get('/booking-history','UserController@bookingHistory')->name("user.booking_history");

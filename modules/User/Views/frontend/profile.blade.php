@@ -17,9 +17,11 @@
         {{__("Settings")}}
         <a href="{{route('user.change_password')}}" class="btn-change-password">{{__("Change Password")}}</a>
     </h2>
+    @if(empty($dataUser->bank_name))
     <div class="alert-bar">
         <p>Please Enter your Bank Details.</p>
     </div>
+    @endif
     @include('admin.message')
     <form action="{{route('user.profile.update')}}" method="post" class="input-has-icon">
         @csrf

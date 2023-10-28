@@ -8,6 +8,13 @@ $menus = [
         'permission' => 'dashboard_vendor_access',
         'position'   => 10
     ],
+    'dashboard'       => [
+        'url'        => route("vendor.dashboard"),
+        'title'      => __("Dashboard"),
+        'icon'       => 'fa fa-home',
+        'permission' => 'customer_dashboard',
+        'position'   => 10
+    ],
     'booking-history' => [
         'url'      => route("user.booking_history"),
         'title'    => __("Booking History"),
