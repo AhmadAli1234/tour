@@ -1,6 +1,8 @@
 $('.bravo-form-register-vendor [type=submit]').on('click',function (e) {
     e.preventDefault();
     let form = $(this).closest('.bravo-form-register-vendor');
+    const urlParams = new URLSearchParams(window.location.search);
+    const ref = urlParams.get('ref');
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': form.find('meta[name="csrf-token"]').attr('content')
@@ -18,6 +20,7 @@ $('.bravo-form-register-vendor [type=submit]').on('click',function (e) {
             'phone': form.find('input[name=phone]').val(),
             'term': form.find('input[name=term]').is(":checked") ? 1 : '',
             'user_type': form.find('input[name=user_type]').val(),
+            'ref':ref,
             'g-recaptcha-response': form.find('[name=g-recaptcha-response]').val(),
         },
         'type': 'POST',

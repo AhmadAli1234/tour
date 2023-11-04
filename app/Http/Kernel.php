@@ -83,6 +83,7 @@ class Kernel extends HttpKernel
         "system_log_view" => \App\Http\Middleware\CheckForLogPermission::class,
 
         "set_language_for_api" => \App\Http\Middleware\SetLanguageForApi::class,
+        'CheckReferral' => \App\Http\Middleware\CheckReferral::class,
     ];
 
     /**

@@ -21,6 +21,7 @@ use Validator;
 use Modules\Booking\Models\Booking;
 use App\Helpers\ReCaptchaEngine;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Cookie;
 use Modules\Booking\Models\Enquiry;
 use Illuminate\Support\Str;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -35,6 +36,7 @@ class UserController extends FrontendController
     {
         $this->enquiryClass = Enquiry::class;
         parent::__construct();
+        $this->middleware(['CheckReferral']);
     }
 
     public function dashboard(Request $request)
@@ -60,7 +62,13 @@ class UserController extends FrontendController
             return view('User::frontend.business-dashboard', $data);
         }
         elseif(isset(Auth::user()->user_type)&&Auth::user()->user_type=='affiliate'){
-            return view('User::frontend.affiliate-dashboard', $data);
+            $affiliates =0;
+            $ref_no = Auth::user()->affiliate_id;
+            $matricular = Auth::user()->matricular_no;
+            if(!empty($ref_no)){
+                $affiliates = User::where('referred_by',$ref_no)->count();
+            }
+            return view('User::frontend.affiliate-dashboard',compact('affiliates','matricular'));
         }
         else{
             return view('User::frontend.customer-dashboard', $data);
@@ -321,6 +329,7 @@ class UserController extends FrontendController
                 'messages' => $validator->errors()
             ], 200);
         } else {
+            $referred_by = Cookie::get('referral');
 
             $user = \App\User::create([
                 'first_name' => $request->input('first_name'),
@@ -329,7 +338,9 @@ class UserController extends FrontendController
                 'password'   => Hash::make($request->input('password')),
                 'status'    => $request->input('publish','publish'),
                 'phone'    => $request->input('phone'),
-                'user_type' => $request->input('user_type')
+                'user_type' => $request->input('user_type'),
+                'affiliate_id' => Str::random(20),
+                'referred_by'   => $referred_by
             ]);
             event(new Registered($user));
             Auth::loginUsingId($user->id);

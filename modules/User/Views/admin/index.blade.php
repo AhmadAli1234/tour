@@ -55,6 +55,8 @@
                             <th>{{__('Phone')}}</th>
                             <th>{{__('Role')}}</th>
                             <th class="date">{{ __('Date')}}</th>
+                            <th>Bank Name</th>
+                            <th>Account No</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -76,6 +78,8 @@
                                     @endphp
                                 </td>
                                 <td>{{ display_date($row->created_at)}}</td>
+                                <td>{{$row->bank_name??''}}</td>
+                                <td>{{$row->bank_account_no??''}}</td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

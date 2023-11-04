@@ -11,6 +11,9 @@
         width: 260px;
         padding: 3px;
     }
+    i{
+        margin-left: 10px;
+    }
 </style>
     <h2 class="title-bar no-border-bottom">
         {{__("Affiliate Dashboard")}}
@@ -20,6 +23,47 @@
     <div class="bravo-user-dashboard">
         <div class="row dashboard-price-info row-eq-height">
                 <div class="col-md-8 col-sm-12">
+                <div class="bravo-user-dashboard">
+                    <div class="row dashboard-price-info row-eq-height">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="dashboard-item info">
+                                <div class="icon">
+                                    <i class="icon ion-ios-gift"></i>
+                                </div>
+                                <div class="wrap-box">
+                                    <div class="title">
+                                        Earnings
+                                    </div>
+                                    <div class="details">
+                                        <div class="number">
+                                            0
+                                        </div>
+                                    </div>
+                                    <div class="desc"> Total Earnings</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="dashboard-item success">
+                                <div class="icon">
+                                    <i class="icon ion-ios-flash"></i>
+                                </div>
+                                <div class="wrap-box">
+                                    <div class="title">
+                                        Affiliates
+                                    </div>
+                                    <div class="details">
+                                        <div class="number">
+                                            {{$affiliates??0}}
+                                        </div>
+                                    </div>
+                                    <div class="desc"> Total Affliliates</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
                     <div class="row">
                         <div class="col-md-6">
                             <h5>
@@ -31,8 +75,10 @@
                         </div>
                         <div class="col-md-6">
                             <h5>
-                                OUTF74<br><br>
-                                <input type="text" class="form-control" readonly value="https://lowxy.fr/register">
+                                {{$matricular??''}}<br><br>
+                                <div class="d-flex">
+                                    <input type="text" id="ref_url" class="form-control" readonly value="{{url('/').'/register?ref='.Auth::user()->affiliate_id}}"><i  onclick="copyText()" class="icon ion-ios-copy"></i>
+                                </div>
                             </h5>
                         </div>
                     </div>
@@ -41,7 +87,7 @@
                 <button class="btn btn-success" onclick="PrintElem('qr-div')">Print</button>
                <br><br><br>
                <div id="qr-div">
-                {!! QrCode::size(256)->generate('https://lowxy.fr/register') !!}
+                {!! QrCode::size(256)->generate(url('/').'/register?ref='.Auth::user()->affiliate_id) !!}
                </div>
                 
                 
@@ -53,6 +99,20 @@
 @section('footer')
     <script type="text/javascript" src="{{ asset("libs/chart_js/Chart.min.js") }}"></script>
     <script type="text/javascript">
+
+        function copyText() {
+        // Get the text field
+        var copyText = document.getElementById("ref_url");
+
+        // Select the text field
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText.value);
+
+        // Alert the copied text
+        alert("Copied the text: " + copyText.value);
+        }
 
     function PrintElem(divId) {
        

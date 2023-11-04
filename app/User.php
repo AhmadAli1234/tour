@@ -58,7 +58,11 @@
             'bank_name',
             'bank_account_no',
             'bank_iban',
-            'bank_other_info'
+            'bank_other_info',
+            'referred_by',
+            'affiliate_id',
+            'matricular_no'
+            
         ];
 
         /**

@@ -37,6 +37,13 @@
                         <i class="fa fa-user input-icon"></i>
                     </div>
                 @endif
+                @if(Auth::user()->user_type=='affiliate')
+                    <div class="form-group">
+                        <label>Matricular No</label>
+                        <input type="text" value="{{old('matricular_no',$dataUser->matricular_no)}}" name="matricular_no" placeholder="Matricular No" class="form-control">
+                        <i class="fa fa-user input-icon"></i>
+                    </div>
+                @endif
                 <div class="form-group">
                     <label>{{__("User name")}} <span class="text-danger">*</span></label>
                     <input type="text" name="user_name" required minlength="4" value="{{old('user_name',$dataUser->user_name)}}" placeholder="{{__("User name")}}" class="form-control">

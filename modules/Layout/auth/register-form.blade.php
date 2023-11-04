@@ -1,8 +1,12 @@
 <form class="form bravo-form-register" method="post">
     @csrf
 <input type="hidden" name="user_type" class="user_type" value="">
+@php
+Session::put('ref',app('request')->input('ref'))
+@endphp
     <div class="row ">
         <div class="col-md-12">
+            
             <ul style="display: inline-flex; width:100%">
                 <li
                     style="border: 1px solid #e4e4e4; margin: 15px; padding: 10px 30px 10px 10px; border-radius: 15px;font-size: 15px;" class="d-flex">
