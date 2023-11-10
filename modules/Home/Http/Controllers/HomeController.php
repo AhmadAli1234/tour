@@ -11,6 +11,7 @@ use Modules\Quiz\Entities\Advertisement;
 use Modules\Quiz\Entities\Interest;
 use Modules\Quiz\Entities\Quiz;
 use Modules\Quiz\Entities\QuizAttemp;
+use Modules\Quiz\Entities\QuizHistory;
 use Session;
 
 class HomeController extends Controller
@@ -49,7 +50,15 @@ class HomeController extends Controller
             return view('home::quiz',compact('question','attemps'));
         }
         else{
-            return redirect('/quiz/ads-result');
+            $result_count = QuizAttemp::where('user_id',$user_id)->where('result',true)->count();
+            $store_quiz = new QuizHistory();
+            $store_quiz->user_id = $user_id;
+            $store_quiz->status = $result_count==3 ? true: false;
+            $store_quiz->date = date('Y-m-d');
+            $store_quiz->save();
+            if($store_quiz){
+                return redirect('/quiz/ads-result');
+            }
         }
     }
 
@@ -111,9 +120,15 @@ class HomeController extends Controller
             }
         }
         else{
-            return redirect('/quiz/ads-result');
-
+          
+                return redirect('/quiz/ads-result');
         }
+    }
+    
+    public function tryMore(){
+        $user_id = Auth::user()->id;
+        QuizAttemp::where('user_id',$user_id)->delete();
+        return redirect('/quiz');
     }
 
     public function ads(){
@@ -137,6 +152,7 @@ class HomeController extends Controller
                 $message = 'You Win the Quiz';
                 $status = 'pass';
             }
+            QuizAttemp::where('user_id',$user_id)->delete();
             return view('home::ads-result',compact('message','status','result_count'));
         }
         else{

@@ -19,6 +19,7 @@ Route::prefix('admin/module/quiz')->group(function() {
     Route::get('/edit/{id}', 'QuizController@edit')->name('quiz.admin.edit');
     Route::post('/store/{id}', 'QuizController@store')->name('quiz.admin.store');
     Route::get('/delete/{id}', 'QuizController@delete')->name('quiz.admin.delete');
+    Route::get('/report', 'QuizController@report')->name('quiz.admin.report');
 });
 Route::prefix('admin/module/interest')->group(function() {
     Route::get('/', 'InterestController@index')->name('interest.admin.index');

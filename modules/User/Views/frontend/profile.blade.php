@@ -23,7 +23,7 @@
     </div>
     @endif
     @include('admin.message')
-    <form action="{{route('user.profile.update')}}" method="post" class="input-has-icon">
+    <form action="{{route('user.profile.update')}}" method="post" class="input-has-icon" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-md-6">
@@ -37,11 +37,22 @@
                         <i class="fa fa-user input-icon"></i>
                     </div>
                 @endif
-                @if(Auth::user()->user_type=='affiliate')
+                @if(Auth::user()->user_type=='individual' || Auth::user()->user_type=='affiliate')
                     <div class="form-group">
-                        <label>Matricular No</label>
-                        <input type="text" value="{{old('matricular_no',$dataUser->matricular_no)}}" name="matricular_no" placeholder="Matricular No" class="form-control">
+                        <label>Taxi No</label>
+                        <input type="text" value="{{old('matricular_no',$dataUser->matricular_no)}}" name="matricular_no" placeholder="Taxi No" class="form-control">
                         <i class="fa fa-user input-icon"></i>
+                    </div>
+                @endif
+                @if(Auth::user()->user_type=='individual')
+                    <div class="form-group">
+                    <label>Bill Receipt</label>
+                    <div class="upload-btn-wrapper">
+                        <div class="input-group">
+                        <input type="file" class="form-control" name="bill_receipt">
+                        </div>
+                        
+                    </div>
                     </div>
                 @endif
                 <div class="form-group">

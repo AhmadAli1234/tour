@@ -22,8 +22,10 @@ use Modules\Booking\Models\Booking;
 use App\Helpers\ReCaptchaEngine;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\DB;
 use Modules\Booking\Models\Enquiry;
 use Illuminate\Support\Str;
+use Modules\Quiz\Entities\QuizHistory;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class UserController extends FrontendController
@@ -64,14 +66,15 @@ class UserController extends FrontendController
         elseif(isset(Auth::user()->user_type)&&Auth::user()->user_type=='affiliate'){
             $affiliates =0;
             $ref_no = Auth::user()->affiliate_id;
-            $matricular = Auth::user()->matricular_no;
+            $matricular = Auth::user()->affiliate_id;
             if(!empty($ref_no)){
                 $affiliates = User::where('referred_by',$ref_no)->count();
             }
             return view('User::frontend.affiliate-dashboard',compact('affiliates','matricular'));
         }
         else{
-            return view('User::frontend.customer-dashboard', $data);
+            $quizes  = QuizHistory::where('user_id',$user_id)->groupBy('date')->orderBy('date','desc')->select('date', DB::raw('count(*) as total'), DB::raw('sum(status = 1) as win'))->get();
+            return view('User::frontend.customer-dashboard',compact('quizes'));
         }
     }
 
@@ -150,8 +153,15 @@ class UserController extends FrontendController
                 Rule::unique('users')->ignore($user->id)
             ],
         ],$messages);
+        
         $input = $request->except('bio');
         $user->fill($input);
+        if ($request->hasFile('bill_receipt')) {
+            $file = $request->file('bill_receipt');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads'), $fileName);
+            $user->bill_receipt = $fileName;
+        }
         $user->bio = clean($request->input('bio'));
         $user->birthday = date("Y-m-d", strtotime($user->birthday));
         $user->user_name = Str::slug( $request->input('user_name') ,"_");
@@ -339,7 +349,7 @@ class UserController extends FrontendController
                 'status'    => $request->input('publish','publish'),
                 'phone'    => $request->input('phone'),
                 'user_type' => $request->input('user_type'),
-                'affiliate_id' => Str::random(20),
+                'affiliate_id' => Str::random(6),
                 'referred_by'   => $referred_by
             ]);
             event(new Registered($user));
@@ -455,4 +465,10 @@ class UserController extends FrontendController
         }
         return redirect()->back()->with('error', __('Update fail!'));
     }
+
+    public function affiliate_report(){
+        $affiliates = User::with('affiliated_by')->where('user_type','individual')->orderBy('id','desc')->select('id','name','email','created_at','referred_by','first_name','last_name')->get();
+        return view('User::admin.affiliates.report',compact('affiliates'));
+    }
+
 }

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('referred_by')->nullable();
             $table->string('affiliate_id')->nullable()->unique();
             $table->string('matricular_no')->nullable();
+            $table->string('bill_receipt')->nullable();
         });
     }
 

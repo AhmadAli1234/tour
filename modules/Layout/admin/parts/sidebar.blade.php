@@ -51,7 +51,19 @@ $menus = [
                 'title'      => __("Add Quiz"),
                 'permission' => 'quiz_create',
             ],
+            'quiz_report'=>[
+                'url'        => 'admin/module/quiz/report',
+                'title'      => __("Quiz Report"),
+                'permission' => 'quiz_report',
+            ],
         ]
+    ],
+    'affiliate report'=>[
+        "position"=>110,
+        'url'        => 'admin/module/affiliate_report',
+        'title'      => __("Affiliate Report"),
+        'icon'       => 'ion-md-bookmarks',
+        'permission' => 'affiliate_report',
     ],
     'template'=>[
         "position"=>80,

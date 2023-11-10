@@ -61,7 +61,8 @@
             'bank_other_info',
             'referred_by',
             'affiliate_id',
-            'matricular_no'
+            'matricular_no',
+            'bill_receipt'
             
         ];
 
@@ -411,6 +412,10 @@
 
         public function getNameAttribute(){
             return $this->first_name.' '.$this->last_name;
+        }
+
+        public function affiliated_by(){
+            return $this->belongsTo(User::class,'referred_by','affiliate_id');
         }
     }
 

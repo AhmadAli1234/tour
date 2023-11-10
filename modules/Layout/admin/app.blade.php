@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="{{url('libs/daterange/daterangepicker.css')}}"/>
     <link href="{{ asset('dist/admin/css/vendors.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/admin/css/app.css') }}" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
     {!! \App\Helpers\Assets::css() !!}
     {!! \App\Helpers\Assets::js() !!}
     <script>
@@ -141,6 +142,7 @@
 
 <script src="{{url('libs/daterange/moment.min.js')}}"></script>
 <script src="{{url('libs/daterange/daterangepicker.min.js?_ver='.config('app.version'))}}"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 
 {!! \App\Helpers\Assets::js(true) !!}
 

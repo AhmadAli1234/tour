@@ -2,50 +2,48 @@
 @section('head')
 @endsection
 @section('content')
+<style>
+    table{
+        width: 100%;
+    }
+    thead{
+        background-color: #263a53;
+        color:white;
+    }
+</style>
     <h2 class="title-bar no-border-bottom">
         {{__("Customer Dashboard")}}
     </h2>
     @include('admin.message')
+    <br><br><h4>Quiz Played</h4><br>
     <div class="bravo-user-dashboard">
         <div class="row dashboard-price-info row-eq-height">
-            @if(!empty($cards_report))
-                @foreach($cards_report as $item)
-                    <div class="col-lg-3 col-md-3">
-                        <div class="dashboard-item {{$item['class']}}">
-                            <div class="icon">
-                                <i class="{{$item['icon']}}"></i>
-                            </div>
-                            <div class="wrap-box">
-                                <div class="title">
-                                    {{$item['title']}}
-                                </div>
-                                <div class="details">
-                                    <div class="number">
-                                        {{ $item['amount'] }}
-                                    </div>
-                                </div>
-                                <div class="desc"> {{ $item['desc'] }}</div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            @endif
+            <div class="col-md-12 col-lg-12">
+           <table class="table">
+            <thead >
+                <tr>
+                    <th>Date</th>
+                    <th>Quiz Started</th>
+                    <th>Quiz Finished</th>
+                    <th>Quiz Won</th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+                @if(!empty($quizes))
+                    @foreach($quizes as $quiz)
+                        <tr>
+                            <td>{{$quiz->date??''}}</td>
+                            <td>{{$quiz->total??0}}</td>
+                            <td>{{$quiz->total??0}}</td>
+                            <td>{{$quiz->win??0}}</td>
+                        </tr>
+                    @endforeach
+                @endif
+               
+            </tbody>
+           </table>
+           </div>
         </div>
-    </div>
-    <div class="bravo-user-chart">
-        <div class="chart-title">
-            {{__("Earning statistics")}}
-            <div class="action-control">
-                <div id="reportrange">
-                    <i class="fa fa-calendar"></i>&nbsp;
-                    <span></span> <i class="fa fa-caret-down"></i>
-                </div>
-            </div>
-        </div>
-        <canvas class="bravo-user-render-chart"></canvas>
-        <script>
-            var earning_chart_data = {!! json_encode($earning_chart_data) !!};
-        </script>
     </div>
 @endsection
 @section('footer')

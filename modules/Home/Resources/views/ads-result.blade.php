@@ -53,7 +53,9 @@
             <p>Congratulations! You are the winner.</p>
             <p class="score">Your Passed: 3/3</p>
             <br>
+            <div class="flex">
             <a href="{{url('/user/profile')}}"><button class="btn" style="color:white; background-color:#8683FF">Click here to Take your Prise</button></a>
+            </div>
         </div>
     @else
         <div class="result-card loser">
@@ -62,7 +64,7 @@
             <p>Unfortunately, you didn't win this time.</p>
             <p class="score">You Passed: {{$result_count??0}}/3</p>
             <br>
-            <a href="{{url('/user/profile')}}"><button class="btn" style="color:white; background-color:#8683FF">Click here to Take your Prise</button></a>
+            <a href="{{route('quiz.try-more')}}"><button class="btn btn-danger" style="color:white;">Try Again</button></a>
         </div>
     @endif
 </div>

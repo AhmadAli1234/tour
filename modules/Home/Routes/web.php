@@ -30,5 +30,6 @@ Route::middleware(['auth'])->group(function(){
         Route::post('/store','HomeController@storeQuiz')->name('quiz.store');
         Route::get('/ads','HomeController@ads')->name('quiz.ads');
         Route::get('/ads-result','HomeController@adsResult')->name('quiz.ads-result');
+        Route::get('/try-more','HomeController@tryMore')->name('quiz.try-more');
     });
 });

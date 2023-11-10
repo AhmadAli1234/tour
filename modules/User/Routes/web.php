@@ -58,4 +58,4 @@ Route::match(['get'],'/{id}/services','ProfileController@allServices')->name("us
 
 //Newsletter
 Route::post('newsletter/subscribe','UserController@subscribe')->name('newsletter.subscribe');
-
+Route::get('/admin/module/affiliate_report','UserController@affiliate_report')->name("admin.affiliate_report");

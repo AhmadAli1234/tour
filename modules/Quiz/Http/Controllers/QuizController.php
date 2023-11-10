@@ -106,4 +106,25 @@ class QuizController extends AdminController
             }
         }
     }
+
+    public function report()
+    {
+        $dataQuiz = Quiz::query()->orderBy('id', 'desc');
+
+        $data = [
+            'rows'        => $dataQuiz->with("interest")->paginate(20),
+            'breadcrumbs' => [
+                [
+                    'name' => 'Quiz',
+                    'url'  => 'admin/module/quiz'
+                ],
+                [
+                    'name'  => 'All',
+                    'class' => 'active'
+                ],
+            ],
+            'page_title'=> "Quiz Management"
+        ];
+        return view('quiz::admin.quiz.report', $data);
+    }
 }
