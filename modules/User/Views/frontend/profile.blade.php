@@ -37,14 +37,12 @@
                         <i class="fa fa-user input-icon"></i>
                     </div>
                 @endif
-                @if(Auth::user()->user_type=='individual' || Auth::user()->user_type=='affiliate')
+                @if(Auth::user()->user_type=='individual')
                     <div class="form-group">
-                        <label>Taxi No</label>
-                        <input type="text" value="{{old('matricular_no',$dataUser->matricular_no)}}" name="matricular_no" placeholder="Taxi No" class="form-control">
+                        <label>Serial No</label>
+                        <input type="text" value="{{old('matricular_no',$dataUser->matricular_no)}}" name="matricular_no" placeholder="Serial No" class="form-control">
                         <i class="fa fa-user input-icon"></i>
                     </div>
-                @endif
-                @if(Auth::user()->user_type=='individual')
                     <div class="form-group">
                     <label>Bill Receipt</label>
                     <div class="upload-btn-wrapper">

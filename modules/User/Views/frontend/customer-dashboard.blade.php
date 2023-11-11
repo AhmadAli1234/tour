@@ -15,7 +15,9 @@
         {{__("Customer Dashboard")}}
     </h2>
     @include('admin.message')
-    <br><br><h4>Quiz Played</h4><br>
+    <br>
+    <h5><b>Matricular No:</b>  {{Auth::user()->referred_by}}</h5>
+    <br><h4><b>Quiz Played</b></h4>
     <div class="bravo-user-dashboard">
         <div class="row dashboard-price-info row-eq-height">
             <div class="col-md-12 col-lg-12">

@@ -1040,4 +1040,7 @@ class Booking extends BaseModel
     public function updateStatusCoupons(){
         CouponBookings::where('booking_id', $this->id)->update(['booking_status' => $this->status]);
     }
+    public function customer(){
+        return $this->belongsTo(User::class,'customer_id','id');
+    }
 }

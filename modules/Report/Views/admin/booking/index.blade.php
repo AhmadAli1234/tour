@@ -62,7 +62,7 @@
                             <th width="80px"><input type="checkbox" class="check-all"></th>
                             <th>{{__('Service')}}</th>
                             <th>{{__('Customer')}}</th>
-
+                            <th>{{__('Matricular No')}}</th>
                             <th>{{__('Payment Information')}}</th>
                             <th width="80px">{{__('Status')}}</th>
                             <th width="150px">{{__('Payment Method')}}</th>
@@ -98,6 +98,7 @@
                                         <li>{{__("Custom Requirement:")}} {{$row->customer_notes}}</li>
                                     </ul>
                                 </td>
+                                <td>{{$row->customer->referred_by ??''}}</td>
                                 <td>{{__("Total")}} : {{format_money_main($row->total)}}<br/>
                                     {{__("Paid")}} : {{format_money_main($row->paid)}}<br/>
                                     {{__("Remain")}} : {{format_money_main($booking->total - $booking->paid)}}<br/>

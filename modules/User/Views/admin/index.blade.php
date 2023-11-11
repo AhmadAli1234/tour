@@ -57,6 +57,7 @@
                             <th class="date">{{ __('Date')}}</th>
                             <th>Bank Name</th>
                             <th>Account No</th>
+                            <th>Serial No</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -80,6 +81,7 @@
                                 <td>{{ display_date($row->created_at)}}</td>
                                 <td>{{$row->bank_name??''}}</td>
                                 <td>{{$row->bank_account_no??''}}</td>
+                                <td>{{$row->matricular_no??''}}</td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -87,6 +89,9 @@
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item"  href="{{url('admin/module/user/edit/'.$row->id)}}"><i class="fa fa-edit"></i> {{__('Edit')}}</a>
+                                            @if(!empty($row->bill_receipt))
+                                            <a class="dropdown-item" target="__blank" href="{{asset('uploads/'.$row->bill_receipt)}}"><i class="fa fa-preview"></i> {{__('View Receipt')}}</a>
+                                            @endif
                                             @if(!$row->hasVerifiedEmail())
                                                 <a class="dropdown-item"  href="{{route('user.admin.verifyEmail',$row)}}"><i class="fa fa-edit"></i> {{__('Verify email')}}</a>
                                                 @else

@@ -75,6 +75,7 @@ Session::put('ref',app('request')->input('ref'))
     <div class="form-group text-center">
         <button type="submit" class="btn btn-primary form-submit" style="width: 40%;">
             Inscription
+            <span class="spinner-grow spinner-grow-sm icon-loading" role="status" aria-hidden="true"></span>
         </button>
     </div>
     @if(setting_item('facebook_enable') or setting_item('google_enable') or setting_item('twitter_enable'))

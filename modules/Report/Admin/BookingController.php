@@ -20,7 +20,7 @@ class BookingController extends AdminController
     public function index(Request $request)
     {
         $this->checkPermission('booking_view');
-        $query = Booking::where('status', '!=', 'draft');
+        $query = Booking::with('customer.affiliated_by:id,name,first_name,last_name')->where('status', '!=', 'draft');
         if (!empty($request->s)) {
             if( is_numeric($request->s) ){
                 $query->Where('id', '=', $request->s);

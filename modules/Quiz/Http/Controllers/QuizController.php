@@ -5,10 +5,11 @@ namespace Modules\Quiz\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-
+use Illuminate\Support\Facades\DB;
 use Modules\AdminController;
 use Modules\Quiz\Entities\Interest;
 use Modules\Quiz\Entities\Quiz;
+use Modules\Quiz\Entities\QuizHistory;
 
 class QuizController extends AdminController
 {
@@ -109,21 +110,20 @@ class QuizController extends AdminController
 
     public function report()
     {
-        $dataQuiz = Quiz::query()->orderBy('id', 'desc');
-
+        $quizes  = QuizHistory::with('user:id,name,first_name,last_name,referred_by')->groupBy('date')->orderBy('date','desc')->select('id','user_id','date', DB::raw('count(*) as total'), DB::raw('sum(status = 1) as win'))->get();
         $data = [
-            'rows'        => $dataQuiz->with("interest")->paginate(20),
+            'rows'        => $quizes,
             'breadcrumbs' => [
                 [
                     'name' => 'Quiz',
                     'url'  => 'admin/module/quiz'
                 ],
                 [
-                    'name'  => 'All',
+                    'name'  => 'Report',
                     'class' => 'active'
                 ],
             ],
-            'page_title'=> "Quiz Management"
+            'page_title'=> "Quiz Report"
         ];
         return view('quiz::admin.quiz.report', $data);
     }

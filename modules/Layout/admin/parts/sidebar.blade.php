@@ -72,14 +72,14 @@ $menus = [
         'icon'       => 'icon ion-logo-html5',
         'permission' => 'template_create',
     ],
-    'general'=>[
-        "position"=>90,
-        'url'        => 'admin/module/core/settings/index/general',
-        'title'      => __('Setting'),
-        'icon'       => 'icon ion-ios-cog',
-        'permission' => 'setting_update',
-        'children'   => \Modules\Core\Models\Settings::getSettingPages()
-    ],
+    // 'general'=>[
+    //     "position"=>90,
+    //     'url'        => 'admin/module/core/settings/index/general',
+    //     'title'      => __('Setting'),
+    //     'icon'       => 'icon ion-ios-cog',
+    //     'permission' => 'setting_update',
+    //     'children'   => \Modules\Core\Models\Settings::getSettingPages()
+    // ],
     'tools'=>[
         "position"=>100,
         'url'      => 'admin/module/core/tools',
