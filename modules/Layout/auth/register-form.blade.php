@@ -4,6 +4,17 @@
 @php
 Session::put('ref',app('request')->input('ref'))
 @endphp
+<style>
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  li {
+    width: 100%;
+  }
+  ul{
+    display: block !important;
+  }
+}
+</style>
     <div class="row ">
         <div class="col-md-12">
             

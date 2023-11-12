@@ -2,8 +2,6 @@
 
 @section('content')
 
-        @include('home::partials.home.offcanvas')
-
         @include('home::partials.home.hero')
 
         @include('home::partials.home.flag')

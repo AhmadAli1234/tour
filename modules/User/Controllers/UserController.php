@@ -70,11 +70,14 @@ class UserController extends FrontendController
             if(!empty($ref_no)){
                 $affiliates = User::where('referred_by',$ref_no)->count();
             }
-            return view('User::frontend.affiliate-dashboard',compact('affiliates','matricular'));
+            $data['affiliates'] = $affiliates;
+            $data['matricular'] = $matricular;
+            return view('User::frontend.affiliate-dashboard',$data);
         }
         else{
             $quizes  = QuizHistory::where('user_id',$user_id)->groupBy('date')->orderBy('date','desc')->select('date', DB::raw('count(*) as total'), DB::raw('sum(status = 1) as win'))->get();
-            return view('User::frontend.customer-dashboard',compact('quizes'));
+           $data['quizes'] = $quizes;
+            return view('User::frontend.customer-dashboard',$data);
         }
     }
 

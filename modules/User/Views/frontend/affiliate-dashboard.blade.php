@@ -14,6 +14,19 @@
     i{
         margin-left: 10px;
     }
+
+    @media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .btn {
+    width: 100%;
+  }
+  svg{
+    width: 100%;
+  }
+  .col-lg-6{
+    margin-top:10px;
+  }
+}
 </style>
     <h2 class="title-bar no-border-bottom">
         {{__("Affiliate Dashboard")}}
@@ -22,68 +35,62 @@
     <br><br>
     <div class="bravo-user-dashboard">
         <div class="row dashboard-price-info row-eq-height">
-                <div class="col-md-8 col-sm-12">
-                <div class="bravo-user-dashboard">
-                    <div class="row dashboard-price-info row-eq-height">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="dashboard-item info">
-                                <div class="icon">
-                                    <i class="icon ion-ios-gift"></i>
-                                </div>
-                                <div class="wrap-box">
-                                    <div class="title">
-                                        Earnings
+                <div class="col-md-8 col-lg-8 ">
+                    <div class="bravo-user-dashboard">
+                        <div class="row dashboard-price-info row-eq-height">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="dashboard-item info">
+                                    <div class="icon">
+                                        <i class="icon ion-ios-gift"></i>
                                     </div>
-                                    <div class="details">
-                                        <div class="number">
-                                            0
+                                    <div class="wrap-box">
+                                        <div class="title">
+                                            Earnings
                                         </div>
+                                        <div class="details">
+                                            <div class="number">
+                                                0
+                                            </div>
+                                        </div>
+                                        <div class="desc"> Total Earnings</div>
                                     </div>
-                                    <div class="desc"> Total Earnings</div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="dashboard-item success">
-                                <div class="icon">
-                                    <i class="icon ion-ios-flash"></i>
-                                </div>
-                                <div class="wrap-box">
-                                    <div class="title">
-                                        Affiliates
+                            <div class="col-lg-6 col-md-6">
+                                <div class="dashboard-item success">
+                                    <div class="icon">
+                                        <i class="icon ion-ios-flash"></i>
                                     </div>
-                                    <div class="details">
-                                        <div class="number">
-                                            {{$affiliates??0}}
+                                    <div class="wrap-box">
+                                        <div class="title">
+                                            Affiliates
                                         </div>
+                                        <div class="details">
+                                            <div class="number">
+                                                {{$affiliates??0}}
+                                            </div>
+                                        </div>
+                                        <div class="desc"> Total Affliliates</div>
                                     </div>
-                                    <div class="desc"> Total Affliliates</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <br><br>
+                    <br><br>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <h5>
-                                <b>
-                                    Matricular Number <br><br>
-                                    Affiliate Link
-                                </b>
-                            </h5>
-                        </div>
-                        <div class="col-md-6">
-                            <h5>
-                                {{$matricular??''}}<br><br>
-                                <div class="d-flex">
+                                <b>Matricular Number </b> <span class=""> {{$matricular??''}}</span><br><br>
+                                   <b> Affiliate Link </b> <span><div class="d-flex">
                                     <input type="text" id="ref_url" class="form-control" readonly value="{{url('/').'/register?ref='.Auth::user()->affiliate_id}}"><i  onclick="copyText()" class="icon ion-ios-copy"></i>
-                                </div>
+                                </div></span>
+                                
                             </h5>
                         </div>
+                      
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-12" style="float: right;">
+                <div class="col-md-4 col-lg-4 " style="float: right;">
                 <button class="btn btn-success" onclick="PrintElem('qr-div')">Print</button>
                <br><br><br>
                <div id="qr-div">

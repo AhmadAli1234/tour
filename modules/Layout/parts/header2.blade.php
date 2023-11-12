@@ -61,3 +61,70 @@
     </div>
 </header>
 <!-- header-area-end -->
+
+
+
+<!-- mobile menu -->
+
+<!-- offcanvas-start -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <span class="offcanvas-title" id="offcanvasRightLabel"><img
+                src="{{ asset('new/images/logo.png') }}" class="img-fluid" alt=""></span>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="mobile-menu-item">
+            <ul>
+                <li><a href="{{ url('/') }}" class="logos">
+                        <img src="{{ asset('new/images/logo.png') }}" class="img-fluid"
+                            alt=""></a>
+                </li>
+                <li><a href="{{ url('/quiz') }}">Quiz Geolocalisé</a></li>
+                <li><a href="{{ url('/audioguide') }}">Audioguides Géolocalisé</a></li>
+                <li><a href="{{ url('/ticket') }}">Ticket</a></li>
+                <li><a href="{{ url('/news') }}">Blog</a></li>
+                <li><a href="#">A propos de la startup</a></li>
+            </ul>
+        </div>
+        <div class="mobile-menu-btn">
+            <ul>
+                @if(!Auth::id())
+                    <li>
+                        @if($header=='tour')
+                            <a href="#login" data-toggle="modal" data-target="#login" class="login">Connexion</a>
+                        @else
+                            <a href="{{ url('/login') }}" class="login">Connexion</a>
+                        @endif
+                    </li>
+                    <li>
+                        @if($header=='tour')
+                            <a href="#register" data-toggle="modal" data-target="#register"
+                                class="signup">Inscription</a>
+                        @else
+                            <a href="{{ url('/register') }}" class="signup">Inscription</a>
+                        @endif
+                    </li>
+                @else
+                    @if(is_admin())
+                        <li><a href="{{ url('/admin') }}"
+                                class="login">{{ __("Admin Dashboard") }}</a></li>
+                    @else
+                        <li><a href="{{ route('vendor.dashboard') }}" class="login">Dashboard</a></li>
+                    @endif
+                    <li class="">
+                        <a href="#"
+                            onclick="event.preventDefault(); document.getElementById('logout-form-topbar').submit();">
+                            {{ __('Logout') }}</a>
+                    </li>
+
+                    <form id="logout-form-topbar" action="{{ route('auth.logout') }}" method="POST"
+                        style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                @endif
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- offcanvas-end-->
