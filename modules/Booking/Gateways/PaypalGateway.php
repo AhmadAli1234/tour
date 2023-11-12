@@ -163,8 +163,8 @@ class PaypalGateway extends BaseGateway
                 }
                 try{
                     $oldPaynow = (float)$booking->pay_now;
-                    $booking->paid += $data['originalAmount'];
-                    $booking->pay_now = (float)($oldPaynow - $data['originalAmount'] < 0 ? 0 : $oldPaynow - $data['originalAmount']);
+                    $booking->paid += $data['amount'];
+                    $booking->pay_now = (float)($oldPaynow - $data['amount'] < 0 ? 0 : $oldPaynow - $data['amount']);
                     $booking->markAsPaid();
 
                 } catch(\Swift_TransportException $e){
