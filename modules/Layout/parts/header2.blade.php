@@ -69,8 +69,9 @@
 <!-- offcanvas-start -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
+    <a href="{{ url('/') }}">
         <span class="offcanvas-title" id="offcanvasRightLabel"><img
-                src="{{ asset('new/images/logo.png') }}" class="img-fluid" alt=""></span>
+                src="{{ asset('new/images/logo.png') }}" class="img-fluid" alt=""></span></a>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
