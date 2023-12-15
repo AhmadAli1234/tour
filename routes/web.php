@@ -9,10 +9,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
 Route::get('/intro','\App\Http\Controllers\LandingpageController@index');
 Route::get('/ticket', '\App\Http\Controllers\HomeController@index');
 // Route::get('/home', '\App\Http\Controllers\HomeController@index')->name('home');
 Route::post('/install/check-db', '\App\Http\Controllers\HomeController@checkConnectDatabase');
+Route::get('store_location','\App\Http\Controllers\HomeController@store_location')->name('store_location');
 
 Route::get('/update', function (){
     return redirect('/');
@@ -30,6 +34,7 @@ Auth::routes();
 Route::post('register','\Modules\User\Controllers\UserController@userRegister')->name('auth.register');
 Route::post('login','\Modules\User\Controllers\UserController@userLogin')->name('auth.login');
 Route::post('logout','\Modules\User\Controllers\UserController@logout')->name('auth.logout');
+
 // Social Login
 Route::get('social-login/{provider}', '\App\Http\Controllers\Auth\LoginController@socialLogin');
 Route::get('social-callback/{provider}', '\App\Http\Controllers\Auth\LoginController@socialCallBack');

@@ -24,6 +24,8 @@
                                     <th width="20%" class="title">Question</th>
                                     <th >Answer</th>
                                     <th width="130px">Interest</th>
+                                    <th width="130px">Latitude</th>
+                                    <th width="130px">Longitude</th>
                                     <th width="15%"></th>
                                 </tr>
                                 </thead>
@@ -36,6 +38,8 @@
                                             </td>
                                             <td>{!!$row->answer ?? '' !!}</td>
                                             <td class="title">{{$row->interest->name??''}} </td>
+                                            <td>{{$row->latitude??''}} </td>
+                                            <td>{{$row->longitude??''}} </td>
                                             <td>
                                                 <div class="d-flex">
                                                     <a href="{{route('quiz.admin.edit',['id'=>$row->id])}}" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i> {{__('Edit')}}</a>

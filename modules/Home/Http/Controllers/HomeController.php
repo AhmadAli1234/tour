@@ -32,13 +32,37 @@ class HomeController extends Controller
     public function quiz(){
         $user_id = Auth::user()->id;
         $attemps = QuizAttemp::where('user_id',$user_id)->count() + 1;
+        $geo_quiz_ids = []; 
         if($attemps < 4){
+
+            //geolocation quiz
+            if(Session::has('latitude') && Session::has('longitude')){
+
+            
+            $latitude = Session::get('latitude');
+            $longitude = Session::get('longitude');
+            $radius = 10; // You can adjust this radius as needed
+            // dd($latitude.'//'.$longitude);
+
+            $geo_quiz_ids = Quiz::select('*')
+                ->selectRaw(
+                    '(3959 * acos( cos( radians(?) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(?) ) + sin( radians(?) ) * sin( radians( latitude ) ) ) ) AS distance',
+                    [$latitude, $longitude, $latitude]
+                )
+                ->having('distance', '<', $radius)
+                ->orderBy('distance')
+                ->pluck('id');
+            }
+
             $attemped_quiz_ids = QuizAttemp::where('user_id',$user_id)->get()->pluck('quiz_id');
             $prefrences = Auth::user()->prefrences;
             $prefrences = explode(',',$prefrences);
             $quiz = Quiz::query();
             if($prefrences){
                 $quiz->whereIn('interest_id',$prefrences);
+            }
+            if($geo_quiz_ids){
+                $quiz->whereIn('id',$geo_quiz_ids);
             }
             $result = $quiz->inRandomOrder()->first();
             if($result !=''){

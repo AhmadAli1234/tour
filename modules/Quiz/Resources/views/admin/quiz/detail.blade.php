@@ -45,6 +45,22 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label>Latitude</label>
+                                        <input type="text" value="{{ $row->latitude ?? '' }}" placeholder="Enter Latitude.." name="latitude" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label>Longitude</label>
+                                        <input type="text" value="{{ $row->longitude ?? '' }}" placeholder="Enter Longitude.." name="longitude" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
                         @endif
                     </div>
                 </div>

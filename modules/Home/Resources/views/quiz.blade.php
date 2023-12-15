@@ -52,12 +52,4 @@
     </section>
 </form>
 </center>
-
-<script type="text/javascript">
-    $('#submitForm').on('click',function(){
-        alert();
-        $('form').submit();
-    })
-
-</script>
 @endsection

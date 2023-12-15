@@ -8,6 +8,7 @@ use Modules\News\Models\Tag;
 use Modules\News\Models\News;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Session;
 class HomeController extends Controller
 {
     /**
@@ -18,6 +19,12 @@ class HomeController extends Controller
     public function __construct()
     {
 
+    }
+
+    public function store_location(Request $request){
+        Session::put('latitude',$request->latitude);
+        Session::put('longitude',$request->longitude);
+        return 'location saved';
     }
 
     /**

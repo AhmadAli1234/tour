@@ -27,7 +27,54 @@
         <link rel="stylesheet" href="{{asset('new/style.css')}}" >
         <!--RESPONSIVE-CSS-->
         <link rel="stylesheet" href="{{asset('new/css/responsive.css')}}" >
+        <script>
+  
 
+  // location checker
+const options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0,
+};
+
+function success(pos) {
+  const crd = pos.coords;
+  const latitude = crd.latitude;
+  const longitude = crd.longitude;
+
+  // Create a new XMLHttpRequest object
+  const xhr = new XMLHttpRequest();
+
+  // Set up a GET request to the server
+  xhr.open('GET', '/store_location?latitude=' + latitude + '&longitude=' + longitude, true);
+
+  // Define a callback function to handle the response
+  xhr.onload = function () {
+      if (xhr.status >= 200 && xhr.status < 300) {
+          // Successful request, log the response
+          console.log(xhr.responseText);
+      } else {
+          // Error in the request
+          console.error('Error setting session variable:', xhr.statusText);
+      }
+  };
+
+  // Handle network errors
+  xhr.onerror = function () {
+      console.error('Network error occurred');
+  };
+
+  // Send the request
+  xhr.send();
+}
+
+function error(err) {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+
+navigator.geolocation.getCurrentPosition(success, error, options);
+
+</script>
     </head>
     <body>
         <!--[if lte IE 9]>
@@ -67,6 +114,8 @@
                   });
                 location.reload();
             }
+
+
         </script>
         <!-- Accordian Script -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
